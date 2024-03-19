@@ -15,10 +15,7 @@
         @await Html.PartialAsync("_Header.cshtml")
         @await Html.PartialAsync("_Sidebar.cshtml")
         <div class="content-wrapper">
-        @await Html.PartialAsync("_BreadScrum.cshtml")
-            <section class="content">
                 @RenderBody()
-            </section>
         </div>
         @await Html.PartialAsync("_Footer.cshtml")
     </div>

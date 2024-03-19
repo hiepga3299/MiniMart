@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniMart.Application.DTOs;
 using MiniMart.Infatructure.Abstract;
+using MiniMart.Ultility;
 
 namespace MiniMart.Areas.Admin.Controllers
 {
@@ -15,6 +16,7 @@ namespace MiniMart.Areas.Admin.Controllers
             _userService = userService;
             _rolesService = rolesService;
         }
+        [Breadscrum("Danh sách tài khoản", "Account")]
         public IActionResult Index()
         {
             return View();
@@ -27,6 +29,7 @@ namespace MiniMart.Areas.Admin.Controllers
             return Json(user);
         }
         [HttpGet]
+        [Breadscrum("Thêm Tài khoản", "Add Account")]
         public async Task<IActionResult> SaveData(string? id)
         {
             var accountDto = !string.IsNullOrEmpty(id) ? await _userService.GetUserById(id) : new AccountDto();

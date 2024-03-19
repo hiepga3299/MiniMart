@@ -3,11 +3,8 @@
     ViewData["Title"] = "SaveData";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
+@await Html.PartialAsync("~/Areas/Admin/Views/Shared/_BreadScrum.cshtml")
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Add Account</h3>
-    </div>
     <form asp-controller="user" asp-action="savedata" asp-antiforgery="true" method="post" enctype="multipart/form-data">
         <div class="card-body">
             @Html.Raw("<div asp-validation-summary='All' class='text-danger'></div>")
