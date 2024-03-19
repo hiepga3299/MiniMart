@@ -3,32 +3,20 @@
   "WorkspaceRootPath": "D:\\DoAnTotNgiep\\MiniMart\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\application\\rolesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:application\\rolesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:areas\\admin\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\application\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:application\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\areas\\admin\\views\\shared\\_breadscrum.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:areas\\admin\\views\\shared\\_breadscrum.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\application\\dtos\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:application\\dtos\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\areas\\admin\\views\\user\\savedata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:areas\\admin\\views\\user\\savedata.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:application\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\areas\\admin\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:areas\\admin\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|d:\\doantotngiep\\minimart\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3779F211-C3E3-4DF0-A7F5-CB31C6DE191C}|MiniMart.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,94 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\UserController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAIwDIAAABKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-15T03:44:55.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Application\\DTOs\\UserDto.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\UserDto.cs",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Application\\DTOs\\UserDto.cs",
-              "RelativeToolTip": "Application\\DTOs\\UserDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T12:27:34.123Z",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-19T04:13:45.012Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Application\\UserService.cs",
-              "RelativeDocumentMoniker": "Application\\UserService.cs",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Application\\UserService.cs",
-              "RelativeToolTip": "Application\\UserService.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAAwHQAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T12:26:35.881Z",
+              "Title": "_BreadScrum.cshtml",
+              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\Shared\\_BreadScrum.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_BreadScrum.cshtml",
+              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\Shared\\_BreadScrum.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_BreadScrum.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-19T04:12:45.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RolesService.cs",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Application\\RolesService.cs",
-              "RelativeDocumentMoniker": "Application\\RolesService.cs",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Application\\RolesService.cs",
-              "RelativeToolTip": "Application\\RolesService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T11:13:58.177Z",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-19T04:12:24.76Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AccountDto.cs",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Application\\DTOs\\AccountDto.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\AccountDto.cs",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Application\\DTOs\\AccountDto.cs",
-              "RelativeToolTip": "Application\\DTOs\\AccountDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAApAAAA",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACoAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-11T10:28:10.207Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SaveData.cshtml",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\User\\SaveData.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\User\\SaveData.cshtml",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\User\\SaveData.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\User\\SaveData.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAACUAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-06T02:12:07.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\User\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\User\\Index.cshtml",
-              "ToolTip": "D:\\DoAnTotNgiep\\MiniMart\\Areas\\Admin\\Views\\User\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\User\\Index.cshtml",
-              "ViewState": "AQIAACQAAAAAAAAAAIBJwBEAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-15T04:45:39.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-19T04:11:55.272Z"
             }
           ]
         }
