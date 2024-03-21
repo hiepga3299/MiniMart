@@ -35,7 +35,7 @@ namespace MiniMart.Areas.Admin.Controllers
             var result = await _userService.CheckLogin(loginModel.Username, loginModel.Password, loginModel.RememberMe);
             if (result.Status)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
             TempData["error"] = result.Message;
 
@@ -45,7 +45,7 @@ namespace MiniMart.Areas.Admin.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return View("Login");
+            return RedirectToAction("Login");
         }
     }
 }
