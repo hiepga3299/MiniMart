@@ -16,13 +16,13 @@ namespace MiniMart.Areas.Admin.Controllers
             _userService = userService;
             _rolesService = rolesService;
         }
-        [Breadscrum("Danh sách tài khoản", "Account")]
+        [Breadscrum("Danh sách tài khoản", "Người dùng")]
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> GetAccountPagination(RequestModel requestModel)
+        public async Task<IActionResult> GetAccountPagination(RequestDataTableModel requestModel)
 
         {
             var user = await _userService.GetListUser(requestModel);

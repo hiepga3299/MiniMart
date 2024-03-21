@@ -2,7 +2,7 @@
 
 namespace MiniMart.Application.DTOs
 {
-    public class RequestModel
+    public class RequestDataTableModel
     {
         public int Draw { get; set; }
         [BindProperty(Name = "length")]

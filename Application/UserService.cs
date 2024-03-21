@@ -59,7 +59,7 @@ namespace MiniMart.Application
             };
         }
 
-        public async Task<ResponseListAccountModel<UserDto>> GetListUser(RequestModel requestModel)
+        public async Task<ResponseDataTableModel<UserDto>> GetListUser(RequestDataTableModel requestModel)
         {
             var user = await _userManager.Users.Where(x => string.IsNullOrEmpty(requestModel.Keyword)
                                                                 || (x.UserName.Contains(requestModel.Keyword)
@@ -77,7 +77,7 @@ namespace MiniMart.Application
                               }).ToListAsync();
             var totalRecord = user.Count();
             var result = user.Skip(requestModel.SkipIndex).Take(requestModel.PageSize).ToList();
-            return new ResponseListAccountModel<UserDto>
+            return new ResponseDataTableModel<UserDto>
             {
                 Data = result,
                 Draw = requestModel.Draw,

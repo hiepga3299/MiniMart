@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<link href="~/admin/dist/plugins/datatable/css/datatables.min.css" rel="stylesheet" />
+<link href="~/admin/dist/plugins/datatable/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<!-- Main content -->
+@await Html.PartialAsync("~/Areas/Admin/Views/Shared/_BreadScrum.cshtml")
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-grid gap-2 d-md-block">
+                            <a class="btn btn-primary" type="button" asp-controller="User" asp-action="SaveData">Thêm tài khoản</a>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="tbl-category" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Tên Danh Mục</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/admin/dist/plugins/datatable/js/datatables.min.js"></script>
+    <script src="~/js/registerdatatable.js"></script>
+    <script src="~/admin/dist/js/category.js"></script>
+}

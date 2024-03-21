@@ -17,8 +17,7 @@ namespace MiniMart.Ultility
         {
             if (context.Controller is Controller controller)
             {
-                var controllerName = controller.GetType().Name.Replace("Controller", "");
-                var path = string.IsNullOrEmpty(_mastername) ? $"{controllerName}" : $"{_mastername}/{controllerName}/{_title}";
+                var path = string.IsNullOrEmpty(_mastername) ? $"{_title}" : $"{_mastername}/{_title}";
                 controller.ViewData["BreadScrum"] = new BreadScrumModel
                 {
                     Title = _title,

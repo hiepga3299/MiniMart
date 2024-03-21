@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XoUjUaJDSJj+s2rzsyH05P2zsPmQI6R7sS1u8x4o/jE=",
+  "Hash": "pk9U2UrVVW+G2PWp2QERufyB1659nu8mVHLmSUgOue4=",
   "Source": "MiniMart",
   "BasePath": "_content/MiniMart",
   "Mode": "Default",
@@ -2732,6 +2732,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\dist\\js\\adminlte.min.js.map"
+    },
+    {
+      "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\category.js",
+      "SourceId": "MiniMart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\",
+      "BasePath": "_content/MiniMart",
+      "RelativePath": "admin/dist/js/category.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\dist\\js\\category.js"
     },
     {
       "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\demo.js",

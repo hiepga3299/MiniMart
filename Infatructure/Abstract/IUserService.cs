@@ -6,7 +6,7 @@ namespace MiniMart.Infatructure.Abstract
     {
         Task<ResponseModel> CheckLogin(string username, string password, bool hasRemember);
         Task<bool> Disable(string id);
-        Task<ResponseListAccountModel<UserDto>> GetListUser(RequestModel requestModel);
+        Task<ResponseDataTableModel<UserDto>> GetListUser(RequestDataTableModel requestModel);
         Task<AccountDto> GetUserById(string id);
         Task<ResponseModel> SaveAccount(AccountDto accountDto);
     }

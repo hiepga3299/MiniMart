@@ -25,10 +25,37 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a asp-controller="User" asp-action="Index" class="nav-link">
+                    <a class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>Account</p>
+                        <p>Người Dùng
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-controller="User" asp-action="Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tài khoản</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Cửa Hàng
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-controller="Category" asp-action="Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh mục sản phẩm</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

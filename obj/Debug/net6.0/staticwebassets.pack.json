@@ -329,6 +329,10 @@
       "PackagePath": "staticwebassets\\admin\\dist\\js\\adminlte.min.js.map"
     },
     {
+      "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\category.js",
+      "PackagePath": "staticwebassets\\admin\\dist\\js\\category.js"
+    },
+    {
       "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\demo.js",
       "PackagePath": "staticwebassets\\admin\\dist\\js\\demo.js"
     },

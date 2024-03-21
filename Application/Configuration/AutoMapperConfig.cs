@@ -9,6 +9,7 @@ namespace MiniMart.Application.Configuration
         public AutoMapperConfig()
         {
             CreateMap<ApplicationUser, AccountDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
         }
     }
 }

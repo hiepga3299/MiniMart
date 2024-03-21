@@ -1,5 +1,4 @@
-﻿
-namespace MiniMart.Application
+﻿namespace MiniMart.Infatructure.Abstract
 {
     public interface IImageService
     {

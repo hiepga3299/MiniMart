@@ -1,6 +1,6 @@
 ﻿namespace MiniMart.Application.DTOs
 {
-    public class ResponseListAccountModel<T>
+    public class ResponseDataTableModel<T>
     {
         public int Draw { get; set; }
         public int RecordsFilltered { get; set; }
