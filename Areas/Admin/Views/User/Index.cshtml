@@ -21,11 +21,11 @@
                         <table id="tbl-account" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Full name</th>
+                                    <th>Tên Tài Khoản</th>
+                                    <th>Họ và Tên</th>
                                     <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>IsActive</th>
+                                    <th>Số Điện Thoại</th>
+                                    <th>Trạng Thái</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -49,19 +49,5 @@
 @section Scripts{
     <script src="~/admin/dist/plugins/datatable/js/datatables.min.js"></script>
     <script src="~/js/registerdatatable.js"></script>
-    <script>
-        const elementName = '#tbl-account';
-        const urlApi = '/admin/user/getaccountpagination';
-        const columns = [
-            { data: 'username', name: 'username' },
-            { data: 'fullname', name: 'fullname'},
-            { data: 'email', name:'email' },
-            { data: 'phone', name:'phone'},
-            { data: 'isActive', name: 'isActive' },
-            { data: 'id', name: 'id', render: function (key) {
-                    return `<a href="/admin/user/savedata?id=${key}"><i class="fas fa-pen"></i></a> &nbsp <a href="#"><i class="fas fa-trash"></i></a>`
-            }}
-        ];
-        registerDataTable(elementName, columns, urlApi)
-    </script>
+    <script src="~/admin/dist/js/account.js"></script>
 }

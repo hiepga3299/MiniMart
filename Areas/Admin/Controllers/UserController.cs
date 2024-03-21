@@ -54,5 +54,11 @@ namespace MiniMart.Areas.Admin.Controllers
             ViewBag.Roles = await _rolesService.GetRolesForDropDownList();
             return View(account);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DisableAccount(string id)
+        {
+            return Json(await _userService.Disable(id));
+        }
     }
 }

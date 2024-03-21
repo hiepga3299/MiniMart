@@ -107,6 +107,7 @@ namespace MiniMart.Application
                     Fullname = accountDto.Fullname,
                     UserName = accountDto.Username,
                     Email = accountDto.Email,
+                    IsActive = accountDto.isActive
                 };
                 identityResult = await _userManager.CreateAsync(applicationUser, accountDto.Password);
                 if (identityResult.Succeeded)
@@ -126,6 +127,7 @@ namespace MiniMart.Application
                 var user = await _userManager.FindByIdAsync(accountDto.Id);
                 user.Fullname = accountDto.Fullname;
                 user.Email = accountDto.Email;
+                user.IsActive = accountDto.isActive;
                 identityResult = await _userManager.UpdateAsync(user);
 
                 if (identityResult.Succeeded)
@@ -156,6 +158,18 @@ namespace MiniMart.Application
                 Message = $"{(string.IsNullOrEmpty(accountDto.Id) ? "Insert" : "Update")} failed {errors}",
                 Status = true
             };
+        }
+
+        public async Task<bool> Disable(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                user.IsActive = false;
+                await _userManager.UpdateAsync(user);
+                return true;
+            }
+            return false;
         }
     }
 }

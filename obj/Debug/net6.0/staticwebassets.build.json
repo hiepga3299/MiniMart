@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fq5KaofdjgW973boOHBCb/OGZNoH8yt0U+I3pxN8GbQ=",
+  "Hash": "XoUjUaJDSJj+s2rzsyH05P2zsPmQI6R7sS1u8x4o/jE=",
   "Source": "MiniMart",
   "BasePath": "_content/MiniMart",
   "Mode": "Default",
@@ -2637,6 +2637,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\dist\\js\\.eslintrc.json"
+    },
+    {
+      "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\account.js",
+      "SourceId": "MiniMart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\",
+      "BasePath": "_content/MiniMart",
+      "RelativePath": "admin/dist/js/account.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\dist\\js\\account.js"
     },
     {
       "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\adminlte.js",

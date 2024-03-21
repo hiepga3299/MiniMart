@@ -309,6 +309,10 @@
       "PackagePath": "staticwebassets\\admin\\dist\\js\\.eslintrc.json"
     },
     {
+      "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\account.js",
+      "PackagePath": "staticwebassets\\admin\\dist\\js\\account.js"
+    },
+    {
       "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\adminlte.js",
       "PackagePath": "staticwebassets\\admin\\dist\\js\\adminlte.js"
     },
