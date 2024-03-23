@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.ViewModel;
+using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
 
 namespace MiniMart.Application
@@ -28,6 +30,33 @@ namespace MiniMart.Application
                 RecordsFilltered = totalRecord,
                 RecordsTotal = totalRecord
             };
+        }
+
+        public async Task<CategoryViewModel> GetById(int id)
+        {
+            var category = await _unitOfWork.CategoryRepository.GetById(id);
+            return _mapper.Map<CategoryViewModel>(category);
+        }
+
+        public async Task CreateCategory(CategoryViewModel categoryViewModel)
+        {
+            if (categoryViewModel.Id == null)
+            {
+                var category = new Category
+                {
+                    Name = categoryViewModel.Name,
+                    IsActive = true,
+                };
+                await _unitOfWork.CategoryRepository.CreateCategoryAsync(category);
+            }
+            else
+            {
+                //Update
+                var category = await _unitOfWork.CategoryRepository.GetById(categoryViewModel.Id.Value);
+                category.Name = categoryViewModel.Name;
+                category.IsActive = true;
+                _unitOfWork.CategoryRepository.UpdateCategory(category);
+            }
         }
     }
 }

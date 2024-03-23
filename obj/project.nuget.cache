@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hqITffiI09d1OjNFZEkC0ILlkzXUaLuoSvHhNRGPOSUnEwyMNxSivieqQ+yInRr0T/CtSQkChgXJ2kwxQfOUXg==",
+  "dgSpecHash": "awL7QnkKhFaY0KIvBXW6lHYSy88NokKKyIkVffuvTuODq9GvIJ6qt1U5SwstuSywg4TaGhXD06HXVKavLq7H2g==",
   "success": true,
   "projectFilePath": "D:\\DoAnTotNgiep\\MiniMart\\MiniMart.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

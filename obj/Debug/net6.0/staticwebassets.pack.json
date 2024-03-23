@@ -517,6 +517,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
+    },
+    {
       "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\js\\registerDataTable.js",
       "PackagePath": "staticwebassets\\js\\registerDataTable.js"
     },

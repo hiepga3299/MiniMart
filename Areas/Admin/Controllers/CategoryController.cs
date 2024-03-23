@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.ViewModel;
 using MiniMart.Infatructure.Abstract;
 using MiniMart.Ultility;
 
@@ -18,7 +19,8 @@ namespace MiniMart.Areas.Admin.Controllers
         [Breadscrum("Danh sách danh mục", "Cửa hàng")]
         public IActionResult Index()
         {
-            return View();
+            var categoryVM = new CategoryViewModel();
+            return View(categoryVM);
         }
 
         [HttpPost]
@@ -26,6 +28,23 @@ namespace MiniMart.Areas.Admin.Controllers
         {
             var result = await _categoryService.GetListCategory(requestData);
             return Json(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Json(await _categoryService.GetById(id));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveData(CategoryViewModel categoryViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                await _categoryService.CreateCategory(categoryViewModel);
+            }
+            return Json(categoryViewModel);
         }
     }
 }

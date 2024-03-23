@@ -14,5 +14,21 @@ namespace MiniMart.Infatructure.Repository
         {
             return await GetAllAsync();
         }
+        public async Task CreateCategoryAsync(Category category)
+        {
+            await Create(category);
+            Commit();
+        }
+
+        public async Task<Category> GetById(int id)
+        {
+            return await GetSingleAsync(x => x.Id == id);
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            Update(category);
+            Commit();
+        }
     }
 }

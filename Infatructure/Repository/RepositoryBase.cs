@@ -31,7 +31,7 @@ namespace MiniMart.Infatructure.Repository
             await _context.Set<T>().AddAsync(entity);
         }
 
-        public void Update(T entyti)
+        public async void Update(T entyti)
         {
             //Dùng để đính kèm entity vào DB và theo dõi sự thay đổi và tự động cập nhập trong DB của đối tượng entity 
             _context.Set<T>().Attach(entyti);

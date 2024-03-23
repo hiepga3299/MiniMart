@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MiniMart.Application;
 using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
+using MiniMart.Infatructure.Dapper;
 using MiniMart.Infatructure.Repository;
 
 namespace MiniMart.Infatructure.DataAccess.Configuration
@@ -34,6 +35,7 @@ namespace MiniMart.Infatructure.DataAccess.Configuration
 
         public static void RegisterDI(this IServiceCollection services)
         {
+            services.AddTransient<ISQLQueryHandler, SQLQueryHandler>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IImageService, ImageService>();

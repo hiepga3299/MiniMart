@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pk9U2UrVVW+G2PWp2QERufyB1659nu8mVHLmSUgOue4=",
+  "Hash": "iVFRUwg4Yiez2tgguyAqvOadZgZJGFF+79IWd3NTIQ0=",
   "Source": "MiniMart",
   "BasePath": "_content/MiniMart",
   "Mode": "Default",
@@ -3625,6 +3625,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\js\\common.js",
+      "SourceId": "MiniMart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\",
+      "BasePath": "_content/MiniMart",
+      "RelativePath": "js/common.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\common.js"
     },
     {
       "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\js\\registerDataTable.js",
