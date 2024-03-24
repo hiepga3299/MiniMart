@@ -38,11 +38,11 @@ namespace MiniMart.Infatructure.Dapper
             }
         }
 
-        public async Task<IEnumerable<T>> ExecuteStoreProdecureReturnList<T>(string query, DynamicParameters parameters, IDbTransaction dbTransaction = null)
+        public async Task<IEnumerable<T>> ExecuteStoreProdecureReturnList<T>(string nameStore, DynamicParameters parameters, IDbTransaction dbTransaction = null)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                return await connection.QueryAsync<T>(query, parameters, dbTransaction, commandType: CommandType.StoredProcedure);
+                return await connection.QueryAsync<T>(nameStore, param: parameters, dbTransaction, commandType: CommandType.StoredProcedure);
             }
         }
     }

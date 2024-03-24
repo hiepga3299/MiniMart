@@ -349,6 +349,10 @@
       "PackagePath": "staticwebassets\\admin\\dist\\js\\pages\\dashboard3.js"
     },
     {
+      "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\product.js",
+      "PackagePath": "staticwebassets\\admin\\dist\\js\\product.js"
+    },
+    {
       "Id": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\plugins\\datatable\\css\\datatables.css",
       "PackagePath": "staticwebassets\\admin\\dist\\plugins\\datatable\\css\\datatables.css"
     },

@@ -1,0 +1,56 @@
+﻿@model MiniMart.Application.DTOs.ViewModel.ProductViewModel;
+@{
+    ViewData["Title"] = "SaveData";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@await Html.PartialAsync("~/Areas/Admin/Views/Shared/_BreadScrum.cshtml")
+<div class="card">
+    <form asp-controller="user" asp-action="savedata" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+        <div class="card-body">
+            @Html.Raw("<div asp-validation-summary='All' class='text-danger'></div>")
+            <input type="hidden" ></input>
+            <div class="form-group">
+                <label for="exampleInputCode">Code<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Code" readonly>
+            </div>
+            <div class="form-group">
+                <label>Chọn Danh Mục<span class="text-danger">*</span></label>
+                @Html.DropDownListFor(x => x.CategoryId, (IEnumerable<SelectListItem>)ViewBag.Category, "Please Select", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="exampleInputProduct">Tên Sản Phẩm<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Name" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPrice">Giá Sản Phẩm<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputAvailable">Số Lượng<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" placeholder="Available">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input"  />
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label">Xác nhận</label>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            @Html.ActionLink("Cancel", "Index", "Product", null, new { @class = "btn btn-secondary" })
+        </div>
+    </form>
+</div>
+

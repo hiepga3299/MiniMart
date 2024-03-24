@@ -1,8 +1,10 @@
-﻿@model MiniMart.Application.DTOs.CategoryDto;
+﻿@model MiniMart.Application.DTOs.ProductDto;
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Product";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 <link href="~/admin/dist/plugins/datatable/css/datatables.min.css" rel="stylesheet" />
 <link href="~/admin/dist/plugins/datatable/css/responsive.bootstrap.min.css" rel="stylesheet" />
 <!-- Main content -->
@@ -14,15 +16,19 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="d-grid gap-2 d-md-block">
-                            <a class="btn btn-primary" type="button" id="btn-save">Thêm danh mục</a>
+                            <a asp-controller="Product" asp-action="SaveData" class="btn btn-primary" type="button" id="btn-save">Thêm sản phẩm</a>
                         </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="tbl-category" class="table table-bordered table-hover">
+                        <table id="tbl-product" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tên Danh Mục</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Danh Mục</th>
+                                    <th>Số Lượng</th>
+                                    <th>Giá</th>
+                                    <th>Ngày Tạo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -34,12 +40,12 @@
         </div>
     </div>
 </section>
-@await Html.PartialAsync("_SaveModal.cshtml", Model)
+@* @await Html.PartialAsync("_SaveModal.cshtml", Model) *@
 
 @section Scripts {
     <script src="~/admin/dist/plugins/datatable/js/datatables.min.js"></script>
     <script src="~/js/registerdatatable.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/admin/dist/js/category.js"></script>
+    <script src="~/admin/dist/js/product.js"></script>
 }

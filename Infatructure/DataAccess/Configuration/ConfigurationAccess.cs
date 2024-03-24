@@ -41,7 +41,7 @@ namespace MiniMart.Infatructure.DataAccess.Configuration
             services.AddTransient<IImageService, ImageService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRolesService, RolesService>();
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            //services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<ICategoryService, CategoryService>();
         }
 

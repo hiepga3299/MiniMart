@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iVFRUwg4Yiez2tgguyAqvOadZgZJGFF+79IWd3NTIQ0=",
+  "Hash": "yQQ/k+Syb4Ld5Rsa8uow1wdVjIbvtRDn8m+lg90MxkI=",
   "Source": "MiniMart",
   "BasePath": "_content/MiniMart",
   "Mode": "Default",
@@ -2827,6 +2827,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\dist\\js\\pages\\dashboard3.js"
+    },
+    {
+      "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\js\\product.js",
+      "SourceId": "MiniMart",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\",
+      "BasePath": "_content/MiniMart",
+      "RelativePath": "admin/dist/js/product.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\dist\\js\\product.js"
     },
     {
       "Identity": "D:\\DoAnTotNgiep\\MiniMart\\wwwroot\\admin\\dist\\plugins\\datatable\\css\\datatables.css",

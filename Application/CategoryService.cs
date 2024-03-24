@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MiniMart.Application.DTOs;
 using MiniMart.Application.DTOs.ViewModel;
 using MiniMart.Domain.Entities;
@@ -36,6 +37,16 @@ namespace MiniMart.Application
         {
             var category = await _unitOfWork.CategoryRepository.GetById(id);
             return _mapper.Map<CategoryViewModel>(category);
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetCategoryForDropDownListAsync()
+        {
+            var category = await _unitOfWork.CategoryRepository.GetCategoriesAsync();
+            return category.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name
+            });
         }
 
         public async Task CreateCategory(CategoryViewModel categoryViewModel)

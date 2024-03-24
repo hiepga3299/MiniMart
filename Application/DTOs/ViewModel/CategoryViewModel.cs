@@ -5,7 +5,7 @@ namespace MiniMart.Application.DTOs.ViewModel
     public class CategoryViewModel
     {
         public int? Id { get; set; } = null;
-        [Required(ErrorMessage = "Cannot empty")]
+        [Required(ErrorMessage = "Không được để trống")]
         public string Name { get; set; }
     }
 }

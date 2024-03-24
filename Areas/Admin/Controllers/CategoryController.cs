@@ -15,12 +15,11 @@ namespace MiniMart.Areas.Admin.Controllers
         {
             _categoryService = categoryService;
         }
-        [Area("Admin")]
         [Breadscrum("Danh sách danh mục", "Cửa hàng")]
         public IActionResult Index()
         {
-            var categoryVM = new CategoryViewModel();
-            return View(categoryVM);
+            var categoryDto = new CategoryDto();
+            return View(categoryDto);
         }
 
         [HttpPost]

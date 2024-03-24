@@ -66,6 +66,7 @@ namespace MiniMart.Infatructure.Configuration
                     new Product
                     {
                         Name = "TET-2024 T01",
+                        Code = Guid.NewGuid().ToString(),
                         Available = 3,
                         Price = 600000,
                         CreateOn = DateTime.Parse("2024-01-22"),
@@ -74,6 +75,7 @@ namespace MiniMart.Infatructure.Configuration
                     new Product
                     {
                         Name = "TET-2024 T02",
+                        Code = Guid.NewGuid().ToString(),
                         Available = 4,
                         Price = 700000,
                         CreateOn = DateTime.Parse("2024-01-21"),
@@ -82,6 +84,7 @@ namespace MiniMart.Infatructure.Configuration
                     new Product
                     {
                         Name = "FOOD - Cơm Cháy",
+                        Code = Guid.NewGuid().ToString(),
                         Available = 4,
                         Price = 90000,
                         CreateOn = DateTime.Parse("2024-01-20"),

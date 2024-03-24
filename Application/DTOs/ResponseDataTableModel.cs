@@ -5,6 +5,6 @@
         public int Draw { get; set; }
         public int RecordsFilltered { get; set; }
         public int RecordsTotal { get; set; }
-        public object Data { get; set; }
+        public IEnumerable<T> Data { get; set; }
     }
 }

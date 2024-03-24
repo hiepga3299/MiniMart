@@ -1,4 +1,5 @@
-﻿using MiniMart.Domain.Entities;
+﻿using Dapper;
+using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
 using MiniMart.Infatructure.DataAccess;
 
@@ -6,13 +7,39 @@ namespace MiniMart.Infatructure.Repository
 {
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
-        public ProductRepository(MiniMartDbContext context) : base(context)
-        {
+        private readonly ISQLQueryHandler _sqlQueryHandler;
 
-        }
-        public async Task<IEnumerable<Product>> GetAllProduct()
+        public ProductRepository(MiniMartDbContext context, ISQLQueryHandler sqlQueryHandler) : base(context)
         {
-            return await GetAllAsync();
+            _sqlQueryHandler = sqlQueryHandler;
+        }
+
+        public async Task<Product> GetSingleProduct(int? id)
+        {
+            return await GetSingleAsync(x => x.Id == id);
+        }
+
+        public async Task<IEnumerable<T>> GetCategoryByProductId<T>(int? id)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("ProductID", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+
+            var result = await _sqlQueryHandler.ExecuteStoreProdecureReturnList<T>("GetCategoryByProductID", parameters);
+            return result;
+        }
+
+        public async Task<(IEnumerable<T>, int)> GetAllProductPagination<T>(string keyword, int pageIndex, int pageSize)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("keyword", null, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            parameters.Add("pageIndex", pageIndex + 1, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+            parameters.Add("pageSize", pageSize, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+            parameters.Add("totalRecord", 0, System.Data.DbType.Int32, System.Data.ParameterDirection.Output);
+
+            var result = await _sqlQueryHandler.ExecuteStoreProdecureReturnList<T>("GetAllProductPagination", parameters);
+            var totalRecords = parameters.Get<int>("totalRecord");
+
+            return (result, totalRecords);
         }
     }
 }

@@ -18,7 +18,6 @@ namespace MiniMart.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var data = await _productService.GetListProduct();
             return View();
         }
 
