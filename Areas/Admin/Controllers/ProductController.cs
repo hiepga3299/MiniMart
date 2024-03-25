@@ -32,11 +32,38 @@ namespace MiniMart.Areas.Admin.Controllers
 
         [HttpGet]
         [Breadscrum("Thêm sản phẩm", "Cửa hàng")]
-        public async Task<IActionResult> SaveData(int? id)
+        public async Task<IActionResult> SaveData(int id)
         {
-            var productVM = id != null ? await _productService.GetProductById(id) : new ProductViewModel();
+            var productVM = new ProductViewModel();
             ViewBag.Category = await _categoryService.GetCategoryForDropDownListAsync();
+
+            string code = await _productService.GenerateCodeAsync();
+            productVM.Code = code;
+            if (id != 0)
+            {
+                productVM = await _productService.GetProductById(id);
+            }
             return View(productVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveDataAsync(ProductViewModel product)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _productService.CreateProduct(product);
+                if (result.Status)
+                {
+                    return RedirectToAction("", "Product");
+                }
+                ModelState.AddModelError("error", result.Message);
+            }
+            else
+            {
+                ModelState.AddModelError("error", "Dữ liệu nhập sai");
+            }
+            return View(product);
         }
     }
 }

@@ -19,6 +19,11 @@ namespace MiniMart.Infatructure.Repository
             return await GetSingleAsync(x => x.Id == id);
         }
 
+        public async Task<Product> GetProductByCode(string? code)
+        {
+            return await GetSingleAsync(x => x.Code == code);
+        }
+
         public async Task<IEnumerable<T>> GetCategoryByProductId<T>(int? id)
         {
             DynamicParameters parameters = new DynamicParameters();
@@ -40,6 +45,19 @@ namespace MiniMart.Infatructure.Repository
             var totalRecords = parameters.Get<int>("totalRecord");
 
             return (result, totalRecords);
+        }
+
+        public async Task<bool?> SaveProduct(Product product)
+        {
+            if (product.Id == 0)
+            {
+                await base.Create(product);
+            }
+            else
+            {
+                base.Update(product);
+            }
+            return true;
         }
     }
 }
