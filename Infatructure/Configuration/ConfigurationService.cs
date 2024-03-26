@@ -57,45 +57,7 @@ namespace MiniMart.Infatructure.Configuration
                         await userManager.AddToRoleAsync(user, defaultRole);
                     }
                 }
-
-                //add product
-                if (db.Product.Any()) return;
-
-                var product = new Product[]
-                {
-                    new Product
-                    {
-                        Name = "TET-2024 T01",
-                        Code = Guid.NewGuid().ToString(),
-                        Available = 3,
-                        Price = 600000,
-                        CreateOn = DateTime.Parse("2024-01-22"),
-                        IsActive = true
-                    },
-                    new Product
-                    {
-                        Name = "TET-2024 T02",
-                        Code = Guid.NewGuid().ToString(),
-                        Available = 4,
-                        Price = 700000,
-                        CreateOn = DateTime.Parse("2024-01-21"),
-                        IsActive = true
-                    },
-                    new Product
-                    {
-                        Name = "FOOD - Cơm Cháy",
-                        Code = Guid.NewGuid().ToString(),
-                        Available = 4,
-                        Price = 90000,
-                        CreateOn = DateTime.Parse("2024-01-20"),
-                        IsActive = true
-                    }
-                };
-                foreach (Product p in product)
-                {
-                    db.Product.Add(p);
-                }
-                db.SaveChanges();
+                if (db.Category.Any()) return;
                 var category = new Category[]
                 {
                     new Category
@@ -115,29 +77,48 @@ namespace MiniMart.Infatructure.Configuration
                 }
                 db.SaveChanges();
 
-                var productCategory = new ProductsCategories[]
+                //add product
+                if (db.Product.Any()) return;
+
+                var product = new Product[]
                 {
-                    new ProductsCategories
+                    new Product
                     {
-                        ProductId = 1,
+                        Name = "TET-2024 T01",
+                        Code = Guid.NewGuid().ToString(),
+                        Available = 3,
+                        Price = 600000,
+                        CreateOn = DateTime.Parse("2024-01-22"),
+                        IsActive = true,
                         CategoryId = 1
                     },
-                    new ProductsCategories
+                    new Product
                     {
-                        ProductId = 2,
+                        Name = "TET-2024 T02",
+                        Code = Guid.NewGuid().ToString(),
+                        Available = 4,
+                        Price = 700000,
+                        CreateOn = DateTime.Parse("2024-01-21"),
+                        IsActive = true,
                         CategoryId = 1
                     },
-                    new ProductsCategories
+                    new Product
                     {
-                        ProductId = 3,
-                        CategoryId = 2
+                        Name = "FOOD - Cơm Cháy",
+                        Code = Guid.NewGuid().ToString(),
+                        Available = 4,
+                        Price = 90000,
+                        CreateOn = DateTime.Parse("2024-01-20"),
+                        IsActive = true,
+                        CategoryId = 1
                     }
                 };
-                foreach (ProductsCategories pc in productCategory)
+                foreach (Product p in product)
                 {
-                    db.ProductsCategories.Add(pc);
+                    db.Product.Add(p);
                 }
                 db.SaveChanges();
+
             }
         }
     }

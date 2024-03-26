@@ -16,6 +16,7 @@ namespace MiniMart.Infatructure.Repository
 
         public async Task<Product> GetSingleProduct(int? id)
         {
+
             return await GetSingleAsync(x => x.Id == id);
         }
 
@@ -27,7 +28,7 @@ namespace MiniMart.Infatructure.Repository
         public async Task<IEnumerable<T>> GetCategoryByProductId<T>(int? id)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("ProductID", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
+            parameters.Add("ProductId", id, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
 
             var result = await _sqlQueryHandler.ExecuteStoreProdecureReturnList<T>("GetCategoryByProductID", parameters);
             return result;
@@ -59,5 +60,6 @@ namespace MiniMart.Infatructure.Repository
             }
             return true;
         }
+
     }
 }

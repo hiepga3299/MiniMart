@@ -14,7 +14,6 @@ namespace MiniMart.Infatructure.DataAccess
         public DbSet<Category> Category { get; set; }
         public DbSet<Cart> Cart { get; set; }
         public DbSet<CartDetail> CartDetail { get; set; }
-        public DbSet<ProductsCategories> ProductsCategories { get; set; }
         public DbSet<Address> Address { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {

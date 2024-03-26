@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiniMart.Domain.Entities
 {
@@ -17,5 +18,9 @@ namespace MiniMart.Domain.Entities
         public double Price { get; set; }
         public DateTime CreateOn { get; set; }
         public bool IsActive { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
+        [ForeignKey(nameof(CategoryId))]
+        public Category Category { get; set; }
     }
 }

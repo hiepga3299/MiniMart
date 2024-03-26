@@ -45,12 +45,13 @@ namespace MiniMart.Application
         public async Task<ResponseModel> CreateProduct(ProductViewModel productVM)
         {
             var product = _mapper.Map<Product>(productVM);
+            product.CreateOn = DateTime.Now;
             if (product.Id == 0)
             {
-                product.CreateOn = DateTime.Now;
                 product.IsActive = true;
                 product.Code = productVM.Code;
             }
+
             var result = await _unitOfWork.ProductRepository.SaveProduct(product);
             await _unitOfWork.SaveChage();
 
