@@ -9,7 +9,7 @@
                             <a href="#" class="btn-edit">
                                 <i class="fas fa-pen"></i>
                             </a> &nbsp 
-                            <a href="#">
+                            <a href="#" class="btn-deletes">
                                 <i class="fas fa-trash"></i>
                             </a>
                          </span>`
@@ -34,6 +34,19 @@
         })
     })
 
+    $(document).on('click', '.btn-deletes', function () {
+        const key = $(this).closest('span').data('key')
+        console.log(key)
+        $.ajax({
+            url: `/admin/category/delete/${key}`,
+            dataType: 'json',
+            type: 'POST',
+            success: function () {
+                $(elementName).DataTable().ajax.reload();
+            }
+        })
+    })
+
     $('#formCategory').submit(function (e) {
         e.preventDefault();
 
@@ -48,4 +61,7 @@
             }
         })
     })
+
+
+
 })()

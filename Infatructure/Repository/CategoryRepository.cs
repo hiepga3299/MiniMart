@@ -1,4 +1,5 @@
-﻿using MiniMart.Domain.Entities;
+﻿using MiniMart.Application.DTOs;
+using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
 using MiniMart.Infatructure.DataAccess;
 
@@ -14,10 +15,14 @@ namespace MiniMart.Infatructure.Repository
         {
             return await GetAllAsync();
         }
+
+        public async Task<IEnumerable<Category>> GetCategoriesForDataTableAsync(RequestDataTableModel requestData)
+        {
+            return await GetAllAsync(x => string.IsNullOrEmpty(requestData.Keyword) || (x.Name.Contains(requestData.Keyword)));
+        }
         public async Task CreateCategoryAsync(Category category)
         {
             await Create(category);
-            Commit();
         }
 
         public async Task<Category> GetById(int id)
@@ -29,6 +34,15 @@ namespace MiniMart.Infatructure.Repository
         {
             Update(category);
             Commit();
+        }
+
+        public bool DeleteCategory(Category category)
+        {
+            if (category.Id != 0)
+            {
+                base.Delete(category);
+            }
+            return true;
         }
     }
 }

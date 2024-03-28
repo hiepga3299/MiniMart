@@ -9,6 +9,7 @@
         public int CategoryId { get; set; }
         public int Available { get; set; }
         public double Price { get; set; }
+        public IFormFile Image { get; set; }
         public DateTime CreateOn { get; set; }
         public bool IsActive { get; set; }
     }

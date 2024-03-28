@@ -20,7 +20,7 @@ namespace MiniMart.Application
 
         public async Task<ResponseDataTableModel<CategoryDto>> GetListCategory(RequestDataTableModel requestData)
         {
-            var category = await _unitOfWork.CategoryRepository.GetCategoriesAsync();
+            var category = await _unitOfWork.CategoryRepository.GetCategoriesForDataTableAsync(requestData);
             var categoryDto = _mapper.Map<IEnumerable<CategoryDto>>(category);
             var totalRecord = categoryDto.Count();
             var pageIndex = categoryDto.Skip(requestData.SkipIndex).Take(requestData.PageSize).ToList();
@@ -31,6 +31,13 @@ namespace MiniMart.Application
                 RecordsFilltered = totalRecord,
                 RecordsTotal = totalRecord
             };
+        }
+
+        public async Task<IEnumerable<CategoryDto>> GetListCategoryForSite()
+        {
+            var category = await _unitOfWork.CategoryRepository.GetCategoriesAsync();
+            var categoryDto = _mapper.Map<IEnumerable<CategoryDto>>(category);
+            return categoryDto;
         }
 
         public async Task<CategoryViewModel> GetById(int id)
@@ -51,7 +58,7 @@ namespace MiniMart.Application
 
         public async Task CreateCategory(CategoryViewModel categoryViewModel)
         {
-            if (categoryViewModel.Id == null)
+            if (categoryViewModel.Id == 0)
             {
                 var category = new Category
                 {
@@ -59,6 +66,7 @@ namespace MiniMart.Application
                     IsActive = true,
                 };
                 await _unitOfWork.CategoryRepository.CreateCategoryAsync(category);
+                await _unitOfWork.SaveChage();
             }
             else
             {
@@ -67,7 +75,20 @@ namespace MiniMart.Application
                 category.Name = categoryViewModel.Name;
                 category.IsActive = true;
                 _unitOfWork.CategoryRepository.UpdateCategory(category);
+                await _unitOfWork.SaveChage();
             }
+        }
+
+        public async Task<bool> DeleteProduct(int id)
+        {
+            var category = await _unitOfWork.CategoryRepository.GetById(id);
+            if (category != null)
+            {
+                _unitOfWork.CategoryRepository.DeleteCategory(category);
+                await _unitOfWork.SaveChage();
+                return true;
+            }
+            return false;
         }
     }
 }

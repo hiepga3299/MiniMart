@@ -21,7 +21,7 @@
                             <a href="/admin/product/savedata?id=${key}">
                                 <i class="fas fa-pen"></i>
                             </a> &nbsp 
-                            <a href="#">
+                            <a href="#" class="btn-delete">
                                 <i class="fas fa-trash"></i>
                             </a> &nbsp 
                             <a href="#" class="btn-disable">
@@ -36,5 +36,18 @@
     $(document).on('click', '.btn-disable', function () {
         const data = $(this).closest('span').data('key')
         console.log(typeof data)
+    })
+
+    $(document).on('click', '.btn-delete', function () {
+        const key = $(this).closest('span').data('key')
+        console.log(key)
+        $.ajax({
+            url: `/admin/product/delete/${key}`,
+            dataType: 'json',
+            type: 'POST',
+            success: function () {
+                $(elementName).DataTable().ajax.reload();
+            }
+        })
     })
 })();

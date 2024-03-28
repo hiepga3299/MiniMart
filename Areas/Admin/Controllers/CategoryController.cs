@@ -45,5 +45,11 @@ namespace MiniMart.Areas.Admin.Controllers
             }
             return Json(categoryViewModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Json(await _categoryService.DeleteProduct(id));
+        }
     }
 }

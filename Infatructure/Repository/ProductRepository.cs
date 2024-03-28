@@ -7,10 +7,12 @@ namespace MiniMart.Infatructure.Repository
 {
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
+        private readonly MiniMartDbContext _context;
         private readonly ISQLQueryHandler _sqlQueryHandler;
 
         public ProductRepository(MiniMartDbContext context, ISQLQueryHandler sqlQueryHandler) : base(context)
         {
+            _context = context;
             _sqlQueryHandler = sqlQueryHandler;
         }
 
@@ -37,7 +39,7 @@ namespace MiniMart.Infatructure.Repository
         public async Task<(IEnumerable<T>, int)> GetAllProductPagination<T>(string keyword, int pageIndex, int pageSize)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("keyword", null, System.Data.DbType.String, System.Data.ParameterDirection.Input);
+            parameters.Add("keyword", keyword, System.Data.DbType.String, System.Data.ParameterDirection.Input);
             parameters.Add("pageIndex", pageIndex + 1, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
             parameters.Add("pageSize", pageSize, System.Data.DbType.Int32, System.Data.ParameterDirection.Input);
             parameters.Add("totalRecord", 0, System.Data.DbType.Int32, System.Data.ParameterDirection.Output);
@@ -57,6 +59,15 @@ namespace MiniMart.Infatructure.Repository
             else
             {
                 base.Update(product);
+            }
+            return true;
+        }
+
+        public bool? DeleteProduct(Product product)
+        {
+            if (product.Id != 0)
+            {
+                base.Delete(product);
             }
             return true;
         }

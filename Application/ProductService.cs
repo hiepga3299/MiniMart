@@ -11,11 +11,13 @@ namespace MiniMart.Application
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IImageService _image;
 
-        public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
+        public ProductService(IUnitOfWork unitOfWork, IMapper mapper, IImageService image)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _image = image;
         }
 
         public async Task<ResponseDataTableModel<ProductDto>> GetListProductPagination(RequestDataTableModel request)
@@ -53,6 +55,7 @@ namespace MiniMart.Application
             }
 
             var result = await _unitOfWork.ProductRepository.SaveProduct(product);
+            await _image.SaveImage(new List<IFormFile> { productVM.Image }, "images/product", $"{productVM.Code}.png");
             await _unitOfWork.SaveChage();
 
             var actionType = productVM.Id == 0 ? ActionType.Insert : ActionType.Update;
@@ -81,6 +84,18 @@ namespace MiniMart.Application
                 }
             }
             return newCode;
+        }
+
+        public async Task<bool> DeleteProduct(int? id)
+        {
+            var products = await _unitOfWork.ProductRepository.GetSingleProduct(id);
+            if (products != null)
+            {
+                _unitOfWork.ProductRepository.DeleteProduct(products);
+                await _unitOfWork.SaveChage();
+                return true;
+            }
+            return false;
         }
     }
 }

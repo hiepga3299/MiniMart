@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using MiniMart.Application.DTOs;
 using MiniMart.Application.DTOs.ViewModel;
 using MiniMart.Domain.Entities;
@@ -13,6 +14,7 @@ namespace MiniMart.Application.Configuration
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<Category, CategoryViewModel>().ReverseMap();
             CreateMap<Product, ProductViewModel>().ReverseMap();
+            CreateMap<IdentityRole, RoleDto>().ReverseMap();
         }
     }
 }

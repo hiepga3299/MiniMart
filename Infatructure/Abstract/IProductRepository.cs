@@ -4,6 +4,7 @@ namespace MiniMart.Infatructure.Abstract
 {
     public interface IProductRepository
     {
+        bool? DeleteProduct(Product product);
         Task<(IEnumerable<T>, int)> GetAllProductPagination<T>(string keywork, int pageIndex, int pageSize);
         Task<IEnumerable<T>> GetCategoryByProductId<T>(int? id);
         Task<Product> GetProductByCode(string? code);
