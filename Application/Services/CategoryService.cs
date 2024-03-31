@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.Categories;
 using MiniMart.Application.DTOs.ViewModel;
 using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
 
-namespace MiniMart.Application
+namespace MiniMart.Application.Services
 {
     public class CategoryService : ICategoryService
     {

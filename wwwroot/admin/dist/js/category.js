@@ -55,7 +55,7 @@
             url: $(this).attr('action'),
             method: $(this).attr('method'),
             data: data,
-            success: function (response) {
+            success: function () {
                 $(elementName).DataTable().ajax.reload();
                 $('#category-modal').modal('hide');
             }

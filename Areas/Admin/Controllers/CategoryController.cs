@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.Categories;
 using MiniMart.Application.DTOs.ViewModel;
 using MiniMart.Infatructure.Abstract;
 using MiniMart.Ultility;

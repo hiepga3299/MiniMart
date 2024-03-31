@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.Categories;
+using MiniMart.Application.DTOs.Products;
 using MiniMart.Application.DTOs.ViewModel;
 using MiniMart.Domain.Entities;
 using MiniMart.Domain.Entities.Enum;
 using MiniMart.Infatructure.Abstract;
 
-namespace MiniMart.Application
+namespace MiniMart.Application.Services
 {
     public class ProductService : IProductService
     {
@@ -39,23 +41,38 @@ namespace MiniMart.Application
         {
             var product = await _unitOfWork.ProductRepository.GetSingleProduct(id);
             var category = (await _unitOfWork.ProductRepository.GetCategoryByProductId<CategoryDto>(id)).First();
-            var productVM = _mapper.Map<ProductViewModel>(product);
-            productVM.CategoryId = category.Id;
+            var fileImage = _image.ConverToIFornFile(product.Image);
+            var productVM = new ProductViewModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Code = product.Code,
+                Description = product.Description,
+                CategoryId = category.Id,
+                Available = product.Available,
+                Price = product.Price,
+                Image = fileImage,
+                IsActive = product.IsActive
+
+            };
             return productVM;
         }
 
         public async Task<ResponseModel> CreateProduct(ProductViewModel productVM)
         {
+            string path = "images/product/";
+            string nameImage = $"{productVM.Code}.png";
             var product = _mapper.Map<Product>(productVM);
             product.CreateOn = DateTime.Now;
             if (product.Id == 0)
             {
                 product.IsActive = true;
                 product.Code = productVM.Code;
+                product.Image = path + nameImage;
             }
 
             var result = await _unitOfWork.ProductRepository.SaveProduct(product);
-            await _image.SaveImage(new List<IFormFile> { productVM.Image }, "images/product", $"{productVM.Code}.png");
+            await _image.SaveImage(new List<IFormFile> { productVM.Image }, path, nameImage);
             await _unitOfWork.SaveChage();
 
             var actionType = productVM.Id == 0 ? ActionType.Insert : ActionType.Update;
@@ -96,6 +113,20 @@ namespace MiniMart.Application
                 return true;
             }
             return false;
+        }
+
+        //Page Shop
+        public async Task<ProductForSiteModel> GetListProductForSiteAsync(int categoryId, int pageIndex, int pageSize)
+        {
+            var (products, totalRecords) = await _unitOfWork.ProductRepository.GetAllProductForSite(categoryId, pageIndex, pageSize);
+            var productDtos = _mapper.Map<IEnumerable<ProductDto>>(products);
+            bool isDisable = totalRecords - (pageIndex * pageSize) <= 0 ? true : false;
+            return new ProductForSiteModel
+            {
+                TotalRecord = totalRecords,
+                IsDisable = isDisable,
+                Products = productDtos
+            };
         }
     }
 }

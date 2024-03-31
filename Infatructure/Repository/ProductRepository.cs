@@ -72,5 +72,17 @@ namespace MiniMart.Infatructure.Repository
             return true;
         }
 
+
+        public async Task<(IEnumerable<Product>, int)> GetAllProductForSite(int categoryId, int pageIndex, int pageSize)
+        {
+            IEnumerable<Product> products;
+            var totalRecords = 0;
+            products = await base.GetAllAsync(x => categoryId == 0 || x.CategoryId == categoryId);
+            totalRecords = products.Count();
+            var result = products.Skip((pageIndex - 1) * pageSize).Take(pageSize * pageIndex).ToList();
+
+            return (result, totalRecords);
+        }
+
     }
 }

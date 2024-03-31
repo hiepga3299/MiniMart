@@ -1,4 +1,4 @@
-﻿namespace MiniMart.Application.DTOs
+﻿namespace MiniMart.Application.DTOs.Categories
 {
     public class CategoryDto
     {

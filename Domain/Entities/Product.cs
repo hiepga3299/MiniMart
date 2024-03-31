@@ -18,6 +18,7 @@ namespace MiniMart.Domain.Entities
         public double Price { get; set; }
         public DateTime CreateOn { get; set; }
         public bool IsActive { get; set; }
+        public string Image { get; set; }
         [Required]
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]

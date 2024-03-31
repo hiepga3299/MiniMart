@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using MiniMart.Application;
+using MiniMart.Application.Services;
 using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
 using MiniMart.Infatructure.Dapper;

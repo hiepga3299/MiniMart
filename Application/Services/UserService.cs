@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.Accounts;
 using MiniMart.Domain.Entities;
 using MiniMart.Domain.Entities.Enum;
 using MiniMart.Infatructure.Abstract;
 
-namespace MiniMart.Application
+namespace MiniMart.Application.Services
 {
     public class UserService : IUserService
     {
@@ -62,9 +63,9 @@ namespace MiniMart.Application
         public async Task<ResponseDataTableModel<UserDto>> GetListUser(RequestDataTableModel requestModel)
         {
             var user = await _userManager.Users.Where(x => string.IsNullOrEmpty(requestModel.Keyword)
-                                                                || (x.UserName.Contains(requestModel.Keyword)
+                                                                || x.UserName.Contains(requestModel.Keyword)
                                                                 || x.Fullname.Contains(requestModel.Keyword)
-                                                                || x.Email.Contains(requestModel.Keyword))
+                                                                || x.Email.Contains(requestModel.Keyword)
                                                                 )
                               .Select(x => new UserDto
                               {

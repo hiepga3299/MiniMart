@@ -44,17 +44,19 @@
                             <label for="exampleInputAvailable">Số Lượng<span class="text-danger">*</span></label>
                             <textarea type="text" class="form-control" placeholder="Description" asp-for="Description"></textarea>
                         </div>
+                        <label for="exampleInputFile">File input</label>
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    @* <label class="custom-file-label" for="exampleInputFile"></label> *@
-                                    <input type="file" class="form-control" asp-for="Image" />
-                                </div>@* 
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div> *@
-                            </div>
+                            @if(Model.Id != 0)
+                            {
+                                <img src="~/images/product/@(Model.Code).png" alt="no image" height="150" id="img-product"/>
+
+                            }
+                            else
+                            {
+                                <img src="#" alt="no image" height="150" id="img-product" />
+                                
+                            }
+                            <input type="file" class="form-control" asp-for="Image" />
                         </div>
                     </div>
                 </div>
@@ -69,4 +71,5 @@
 @section Scripts {
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/admin/components/productsavedata.js"></script>
 }

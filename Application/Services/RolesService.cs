@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.Accounts;
 using MiniMart.Domain.Entities.Enum;
 using MiniMart.Infatructure.Abstract;
 
-namespace MiniMart.Application
+namespace MiniMart.Application.Services
 {
     public class RolesService : IRolesService
     {

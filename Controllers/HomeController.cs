@@ -1,35 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MiniMart.Infatructure.Abstract;
-using MiniMart.Models;
-using System.Diagnostics;
 
 namespace MiniMart.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IProductService _productService;
+        private readonly IProductService _product;
 
-        public HomeController(ILogger<HomeController> logger, IProductService productService)
+        public HomeController(IProductService product)
         {
-            _logger = logger;
-            _productService = productService;
+            _product = product;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int c = 0, int idx = 1, int ps = 8)
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var products = await _product.GetListProductForSiteAsync(c, idx, ps);
+            ViewBag.CurrentCategory = c;
+            ViewBag.CurrentPageIndex = idx;
+            return View(products);
         }
     }
 }

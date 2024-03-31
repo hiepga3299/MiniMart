@@ -1,6 +1,6 @@
 ﻿using MiniMart.Infatructure.Abstract;
 
-namespace MiniMart.Application
+namespace MiniMart.Application.Services
 {
     public class ImageService : IImageService
     {
@@ -43,6 +43,19 @@ namespace MiniMart.Application
                 return default;
             }
             return true;
+        }
+
+        public IFormFile ConverToIFornFile(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                return default;
+            }
+            string filePath = $"./wwwroot/{path}";
+            using (var stream = File.OpenRead(filePath))
+            {
+                return new FormFile(stream, 0, stream.Length, null, Path.GetFileName(stream.Name));
+            }
         }
     }
 }
