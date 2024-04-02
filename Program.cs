@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.RegisterDb(builder.Configuration);
 builder.Services.RegisterDI();
 builder.Services.AutoMapper();
+builder.Services.AddSession(option =>
+                                    option.IdleTimeout = TimeSpan.FromHours(1));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
@@ -37,6 +39,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

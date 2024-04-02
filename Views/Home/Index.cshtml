@@ -60,6 +60,9 @@
                         <figure>
                             <a href="/product/productdetail?id=@product.Id"><img src="./images/product/@(product.Code).png" alt="" /></a>
                             <div class="p-status">new</div>
+                            <div class="add-to-cart">
+                                <button type="button" class="btn btn-outline-danger btn-add-cart" data-code="@product.Code">Add to Cart</button>
+                            </div>
                         </figure>
                         <div class="product-text">
                             <h6>@product.Name</h6>

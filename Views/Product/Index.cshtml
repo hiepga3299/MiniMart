@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<section class="categories-page spad">
+<section class="latest-products spad">
     <div class="container">
         <div class="col-lg-12 text-center">
             <div class="section-title">
@@ -20,6 +20,10 @@
                     <div class="single-product-item">
                         <figure>
                             <a href="/product/productdetail?id=@product.Id"><img src="./images/product/@(product.Code).png" alt="" /></a>
+                            <div class="p-status">new</div>
+                            <div class="add-to-cart">
+                                <button type="button" class="btn btn-light btn-add-cart" data-code="@product.Code">Add to Cart</button>
+                            </div>
                         </figure>
                         <div class="product-text">
                             <h6>@product.Name</h6>
