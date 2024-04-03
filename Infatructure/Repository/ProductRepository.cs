@@ -27,6 +27,11 @@ namespace MiniMart.Infatructure.Repository
             return await GetSingleAsync(x => x.Code == code);
         }
 
+        public async Task<IEnumerable<Product>> GetListProductByCode(string[] codes)
+        {
+            return await base.GetAllAsync(x => codes.Contains(x.Code));
+        }
+
         public async Task<IEnumerable<T>> GetCategoryByProductId<T>(int? id)
         {
             DynamicParameters parameters = new DynamicParameters();

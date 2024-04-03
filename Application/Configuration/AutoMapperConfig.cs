@@ -17,6 +17,7 @@ namespace MiniMart.Application.Configuration
             CreateMap<Category, CategoryViewModel>().ReverseMap();
             CreateMap<Product, ProductViewModel>().ReverseMap();
             CreateMap<IdentityRole, RoleDto>().ReverseMap();
+            CreateMap<Product, ProductCartDto>().ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap().ForMember(destination => destination.CategoryId, option => option.MapFrom(source => source.CategoryId));
         }
     }

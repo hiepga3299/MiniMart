@@ -11,6 +11,7 @@ namespace MiniMart.Infatructure.Abstract
         Task<string> GenerateCodeAsync();
         Task<ProductForSiteModel> GetListProductForSiteAsync(int categoryId, int pageIndex, int pageSize);
         Task<ResponseDataTableModel<ProductDto>> GetListProductPagination(RequestDataTableModel request);
+        Task<IEnumerable<ProductCartDto>> GetProductByCodeAsync(string[] code);
         Task<ProductViewModel> GetProductById(int? id);
     }
 }

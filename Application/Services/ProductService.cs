@@ -128,5 +128,12 @@ namespace MiniMart.Application.Services
                 Products = productDtos
             };
         }
+
+        public async Task<IEnumerable<ProductCartDto>> GetProductByCodeAsync(string[] code)
+        {
+            var products = await _unitOfWork.ProductRepository.GetListProductByCode(code);
+            var result = _mapper.Map<IEnumerable<ProductCartDto>>(products);
+            return result;
+        }
     }
 }
