@@ -13,7 +13,7 @@
                 <img src="~/images/icons/man.png" alt="" />
                 <a href="/cart/index">
                     <img src="~/images/icons/bag.png" alt="" />
-                    <span class="cart-number">0</span>
+                    <span class="cart-number">@(ViewData["CartNumber"] is null ? 0 : Convert.ToInt32(ViewData["CartNumber"]))</span>
                 </a>
             </div>
             <div class="user-access">

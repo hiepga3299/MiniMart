@@ -18,6 +18,7 @@ namespace MiniMart.Controllers
         public async Task<IActionResult> Index()
         {
             var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName) ?? new List<CartModel>();
+            ViewData["CartNumber"] = carts.Count();
             if (carts is not null)
             {
                 var codes = carts.Select(x => x.ProductCode).ToArray();
@@ -58,6 +59,37 @@ namespace MiniMart.Controllers
             HttpContext.Session.Set(CartSessionName, carts);
 
             return Json(carts.Count);
+        }
+
+        [HttpPost]
+        public IActionResult Update([FromBody] List<CartModel> products)
+        {
+            var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName);
+            if (carts is not null)
+            {
+                carts = carts.Select(item =>
+                {
+                    var hasExist = products.FirstOrDefault(x => x.ProductCode == item.ProductCode);
+                    item.Quantity = hasExist.Quantity;
+                    return item;
+                }).ToList();
+                HttpContext.Session.Set<List<CartModel>>(CartSessionName, carts);
+            }
+
+            return Json(true);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(string code)
+        {
+            var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName);
+            if (carts is not null)
+            {
+                carts.RemoveAll(x => x.ProductCode == code);
+                HttpContext.Session.Set<List<CartModel>>(CartSessionName, carts);
+            }
+
+            return Json(true);
         }
     }
 }

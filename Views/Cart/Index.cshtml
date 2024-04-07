@@ -32,33 +32,37 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody-cart">
                     @{
-                        if(Model is not null)
+                        double totalCart = 0;
+                        if(Model.Count() != 0)
                         {
                             foreach(var product in Model)
                             {
-                                <tr>
+                                <tr data-code ="@product.Code">
                                     <td class="product-col">
                                         <img src="~/images/product/@(product.Code).png" alt="" />
                                         <div class="p-title">
                                             <h5>@product.Name</h5>
                                         </div>
                                     </td>
-                                    <td class="price-col">@product.Price.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</td>
+                                    <td class="price-col txt-price">@product.Price.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</td>
                                     <td class="quantity-col">
                                         <div class="pro-qty">
-                                            <input type="text" value="1" />
+                                            <input type="text" class="txt-quantity" value="@product.Quantity" readonly/>
                                         </div>
                                     </td>
-                                    <td class="total">@((product.Quantity * product.Price).ToString("C", CultureInfo.GetCultureInfo("vi-VN")))</td>
-                                    <td class="product-close">x</td>
+                                    <td class="total txt-total">@((product.Quantity * product.Price).ToString("C", CultureInfo.GetCultureInfo("vi-VN")))</td>
+                                    <td class="product-close"><a class="btn-delete-cart">x</a></td>
                                 </tr>
+                                totalCart += (product.Quantity * product.Price);
                             }
                         }
                         else
                         {
-                            <tr><td class ="product-col"><p>No data</p></td></tr>
+                            <tr>
+                                <td colspan="7"><h4>Hiện chưa có sản phẩm nào</h4></td>
+                            </tr>
                         }
                     }
                 </tbody>
@@ -92,7 +96,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="total-cart-p">$39</td>
+                                        <td class="total-cart-p" id="txt-total-cart">@totalCart.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -109,3 +113,7 @@
     </div>
 </div>
 <!-- Cart Page Section End -->
+
+@section Scripts{
+    <script src="~/js/cart.js"></script>
+}
