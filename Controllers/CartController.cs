@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MiniMart.Domain.Common;
 using MiniMart.Infatructure.Abstract;
 using MiniMart.Models;
 using MiniMart.Ultility;
@@ -12,13 +13,11 @@ namespace MiniMart.Controllers
         {
             _product = product;
         }
-        private const string CartSessionName = "CartSession";
 
 
         public async Task<IActionResult> Index()
         {
-            var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName) ?? new List<CartModel>();
-            ViewData["CartNumber"] = carts.Count();
+            var carts = HttpContext.Session.Get<List<CartModel>>(CommonConstant.CartSessionName) ?? new List<CartModel>();
             if (carts is not null)
             {
                 var codes = carts.Select(x => x.ProductCode).ToArray();
@@ -39,7 +38,7 @@ namespace MiniMart.Controllers
         [HttpPost]
         public IActionResult AddCart(CartModel cart)
         {
-            var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName) ?? new List<CartModel>();
+            var carts = HttpContext.Session.Get<List<CartModel>>(CommonConstant.CartSessionName) ?? new List<CartModel>();
             if (!carts.Any())
             {
                 carts.Add(cart);
@@ -56,7 +55,7 @@ namespace MiniMart.Controllers
                     cartExist.Quantity += cart.Quantity;
                 }
             }
-            HttpContext.Session.Set(CartSessionName, carts);
+            HttpContext.Session.Set(CommonConstant.CartSessionName, carts);
 
             return Json(carts.Count);
         }
@@ -64,7 +63,7 @@ namespace MiniMart.Controllers
         [HttpPost]
         public IActionResult Update([FromBody] List<CartModel> products)
         {
-            var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName);
+            var carts = HttpContext.Session.Get<List<CartModel>>(CommonConstant.CartSessionName);
             if (carts is not null)
             {
                 carts = carts.Select(item =>
@@ -73,7 +72,7 @@ namespace MiniMart.Controllers
                     item.Quantity = hasExist.Quantity;
                     return item;
                 }).ToList();
-                HttpContext.Session.Set<List<CartModel>>(CartSessionName, carts);
+                HttpContext.Session.Set<List<CartModel>>(CommonConstant.CartSessionName, carts);
             }
 
             return Json(true);
@@ -82,11 +81,11 @@ namespace MiniMart.Controllers
         [HttpPost]
         public IActionResult Delete(string code)
         {
-            var carts = HttpContext.Session.Get<List<CartModel>>(CartSessionName);
+            var carts = HttpContext.Session.Get<List<CartModel>>(CommonConstant.CartSessionName);
             if (carts is not null)
             {
                 carts.RemoveAll(x => x.ProductCode == code);
-                HttpContext.Session.Set<List<CartModel>>(CartSessionName, carts);
+                HttpContext.Session.Set<List<CartModel>>(CommonConstant.CartSessionName, carts);
             }
 
             return Json(true);

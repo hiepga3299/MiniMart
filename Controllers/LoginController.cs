@@ -1,31 +1,31 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MiniMart.Application.DTOs.Accounts;
 using MiniMart.Domain.Entities;
 using MiniMart.Infatructure.Abstract;
+using MiniMart.Models;
 
-namespace MiniMart.Areas.Admin.Controllers
+namespace MiniMart.Controllers
 {
-	[Area("Admin")]
-	public class AuthenticationController : Controller
+	public class LoginController : Controller
 	{
 		private readonly IUserService _userService;
 		private readonly SignInManager<ApplicationUser> _signInManager;
 
-		public AuthenticationController(IUserService userService, SignInManager<ApplicationUser> signInManager)
+		public LoginController(IUserService userService, SignInManager<ApplicationUser> signInManager)
 		{
 			_userService = userService;
 			_signInManager = signInManager;
 		}
-		[HttpGet]
-		public IActionResult Login()
+		public IActionResult Index(string returnUrl)
 		{
-			LoginModel loginModel = new LoginModel();
+			LoginPageSizeModel loginModel = new LoginPageSizeModel();
+			ViewBag.ReturnUrl = returnUrl;
 			return View(loginModel);
 		}
+
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Login(LoginModel loginModel)
+		public async Task<IActionResult> Login(LoginPageSizeModel loginModel)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -35,7 +35,14 @@ namespace MiniMart.Areas.Admin.Controllers
 			var result = await _userService.CheckLogin(loginModel.Username, loginModel.Password, loginModel.RememberMe);
 			if (result.Status)
 			{
-				return RedirectToAction("Index", "Dashboard");
+				string returnUrl = loginModel.ReturnUrl;
+				if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1
+					&& returnUrl.StartsWith("/") && !returnUrl.StartsWith("//")
+					&& !returnUrl.StartsWith("/\\"))
+				{
+					return Redirect(returnUrl);
+				}
+				return RedirectToAction("Index", "Home");
 			}
 			TempData["error"] = result.Message;
 
@@ -45,7 +52,7 @@ namespace MiniMart.Areas.Admin.Controllers
 		public async Task<IActionResult> Logout()
 		{
 			await _signInManager.SignOutAsync();
-			return RedirectToAction("Login");
+			return RedirectToAction("", "Home");
 		}
 	}
 }

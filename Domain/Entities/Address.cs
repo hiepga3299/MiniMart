@@ -13,6 +13,12 @@ namespace MiniMart.Domain.Entities
         public string AddressName { get; set; }
         [Required]
         [StringLength(100)]
+        public string City { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Region { get; set; }
+        [Required]
+        [StringLength(100)]
         public string Fullname { get; set; }
         [StringLength(100)]
         public string? Email { get; set; }

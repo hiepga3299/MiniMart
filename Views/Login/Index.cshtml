@@ -1,0 +1,62 @@
+﻿@model MiniMart.Models.LoginPageSizeModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/css/login.css" type="text/css" />
+	<title>Document</title>
+</head>
+<body>
+	<form asp-action="Login" asp-controller="Login" method="post" asp-antiforgery="true">
+		<div class="login">
+			<div class="title">Hello Again!</div>
+			<input type="hidden" asp-for="ReturnUrl" value="@ViewBag.ReturnUrl" />
+			<div class="group">
+				<input type="text" asp-for="Username" placeholder="Enter username">
+			</div>
+			<div class="group">
+				<input type="password" id="inputPassword" asp-for="Password" placeholder="Password">
+				<span id="showPassword">
+					<ion-icon name="eye-outline"></ion-icon>
+					<ion-icon name="eye-off-outline"></ion-icon>
+				</span>
+			</div>
+			<div class="recovery">
+				<a href="">recovery password</a>
+			</div>
+			<div class="signIn">
+				<button>Sign In</button>
+			</div>
+			<div class="or">
+				Or continue with
+			</div>
+			<div class="list">
+				<div class="item">
+					<img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="">
+				</div>
+				<div class="item">
+					<img src="https://museumandgallery.org/wp-content/uploads/2020/03/Facebook-Icon-Facebook-Logo-Social-Media-Fb-Logo-Facebook-Logo-PNG-and-Vector-with-Transparent-Background-for-Free-Download.png" alt="">
+				</div>
+				<div class="item">
+					<img src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt="">
+				</div>
+			</div>
+			<div class="register">
+				Not a member? <a href="">Register now</a>
+			</div>
+
+		</div>
+	</form>
+
+	<script src="app.js"></script>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

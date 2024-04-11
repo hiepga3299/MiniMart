@@ -1,5 +1,6 @@
 using MiniMart.Infatructure.Configuration;
 using MiniMart.Infatructure.DataAccess.Configuration;
+using MiniMart.Ultility;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,10 @@ builder.Services.AddSession(option =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(option =>
+{
+    option.Conventions.Add(new SiteAreaConvention());
+});
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

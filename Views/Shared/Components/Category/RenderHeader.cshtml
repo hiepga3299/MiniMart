@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MiniMart.Application.DTOs.Categories.CategoryDto>
+﻿@using System.Security.Principal
+@model IEnumerable<MiniMart.Application.DTOs.Categories.CategoryDto>
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -10,16 +11,26 @@
             </div>
             <div class="header-right">
                 <img src="~/images/icons/search.png" alt="" class="search-trigger" />
-                <img src="~/images/icons/man.png" alt="" />
                 <a href="/cart/index">
                     <img src="~/images/icons/bag.png" alt="" />
-                    <span class="cart-number">@(ViewData["CartNumber"] is null ? 0 : Convert.ToInt32(ViewData["CartNumber"]))</span>
+                    <span class="cart-number">@(ViewData["NumberCart"] is null ? 0 : Convert.ToInt32(ViewData["NumberCart"]))</span>
                 </a>
             </div>
-            <div class="user-access">
-                <a href="#">Đăng ký</a>
-                <a href="#" class="in">Đăng nhập</a>
-            </div>
+            @if(User.Identity?.IsAuthenticated == true)
+            {
+                <div class="user-access">
+                    <a href="#">@User.Identity.Name</a>
+                    <a asp-controller="Login" asp-action="Logout" class="in">Thoat</a>
+                </div>
+            }
+            else
+            {
+                <div class="user-access">
+                    <a href="#">Đăng ký</a>
+                    <a href="#" class="in">Đăng nhập</a>
+                </div>
+            }
+            
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li><a class="active" href="/home">Trang chủ</a></li>
