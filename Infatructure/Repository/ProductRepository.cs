@@ -78,14 +78,17 @@ namespace MiniMart.Infatructure.Repository
         }
 
 
-        public async Task<(IEnumerable<Product>, int)> GetAllProductForSite(int categoryId, int pageIndex, int pageSize)
+        public async Task<(IEnumerable<Product>, int)> GetAllProductForSite(int categoryId, int pageIndex, int pageSize, string keyword)
         {
             IEnumerable<Product> products;
             var totalRecords = 0;
             products = await base.GetAllAsync(x => categoryId == 0 || x.CategoryId == categoryId);
             totalRecords = products.Count();
             var result = products.Skip((pageIndex - 1) * pageSize).Take(pageSize * pageIndex).ToList();
-
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                result = products.Where(p => p.Name.Contains(keyword)).Skip((pageIndex - 1) * pageSize).Take(pageSize * pageIndex).ToList();
+            }
             return (result, totalRecords);
         }
 

@@ -12,9 +12,9 @@ namespace MiniMart.Controllers
             _product = product;
         }
 
-        public async Task<IActionResult> Index(int c = 0, int idx = 1, int ps = 8)
+        public async Task<IActionResult> Index(int c = 0, int idx = 1, int ps = 8, string kw = null)
         {
-            var products = await _product.GetListProductForSiteAsync(c, idx, ps);
+            var products = await _product.GetListProductForSiteAsync(c, idx, ps, kw);
             ViewBag.CurrentCategory = c;
             ViewBag.CurrentPageIndex = idx;
             return View(products);

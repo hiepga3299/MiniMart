@@ -116,9 +116,9 @@ namespace MiniMart.Application.Services
         }
 
         //Page Shop
-        public async Task<ProductForSiteModel> GetListProductForSiteAsync(int categoryId, int pageIndex, int pageSize)
+        public async Task<ProductForSiteModel> GetListProductForSiteAsync(int categoryId, int pageIndex, int pageSize, string keyword)
         {
-            var (products, totalRecords) = await _unitOfWork.ProductRepository.GetAllProductForSite(categoryId, pageIndex, pageSize);
+            var (products, totalRecords) = await _unitOfWork.ProductRepository.GetAllProductForSite(categoryId, pageIndex, pageSize, keyword);
             var productDtos = _mapper.Map<IEnumerable<ProductDto>>(products);
             bool isDisable = totalRecords - (pageIndex * pageSize) <= 0 ? true : false;
             return new ProductForSiteModel

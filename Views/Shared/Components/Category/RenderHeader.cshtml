@@ -10,13 +10,18 @@
                 <a href="./index.html"><img src="~/images/logo.png" alt="" /></a>
             </div>
             <div class="header-right">
-                <img src="~/images/icons/search.png" alt="" class="search-trigger" />
-                <a href="/cart/index">
-                    <img src="~/images/icons/bag.png" alt="" />
-                    <span class="cart-number">@(ViewData["NumberCart"] is null ? 0 : Convert.ToInt32(ViewData["NumberCart"]))</span>
-                </a>
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" id="txt-search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <span class="ml-2" id="search-addon">
+                        <img src="~/images/icons/search.png" alt="" class="search-trigger" />
+                    </span>
+                    <a href="/cart/index">
+                        <img src="~/images/icons/bag.png" alt="" />
+                        <span class="cart-number">@(ViewData["NumberCart"] is null ? 0 : Convert.ToInt32(ViewData["NumberCart"]))</span>
+                    </a>
+                </div>
             </div>
-            @if(User.Identity?.IsAuthenticated == true)
+            @if (User.Identity?.IsAuthenticated == true)
             {
                 <div class="user-access">
                     <a href="#">@User.Identity.Name</a>
@@ -30,7 +35,7 @@
                     <a href="#" class="in">Đăng nhập</a>
                 </div>
             }
-            
+
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li><a class="active" href="/home">Trang chủ</a></li>

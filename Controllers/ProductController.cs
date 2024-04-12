@@ -12,20 +12,25 @@ namespace MiniMart.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int c, int idx = 1, int ps = 8)
+        public async Task<IActionResult> Index(int c, int idx = 1, int ps = 8, string kw = null)
         {
-            var result = await _product.GetListProductForSiteAsync(c, idx, ps);
+            var result = await _product.GetListProductForSiteAsync(c, idx, ps, kw);
             ViewBag.CurrentCategory = c;
             ViewBag.CurrentPageIndex = idx;
             return View(result);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProductPagination(int category, int pageIndex)
+        public async Task<IActionResult> GetProductPagination(int category, int pageIndex, string keyword = null)
         {
             int pageSize = 8;
-            var result = await _product.GetListProductForSiteAsync(category, pageIndex, pageSize);
+            var result = await _product.GetListProductForSiteAsync(category, pageIndex, pageSize, keyword);
             return Json(result);
+        }
+        public async Task<IActionResult> Search(string keyword)
+        {
+            var result = await _product.GetListProductForSiteAsync(0, 1, 8, keyword);
+            return View("Search", result);
         }
 
         [HttpGet]

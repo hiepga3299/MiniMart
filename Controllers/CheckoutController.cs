@@ -47,7 +47,7 @@ namespace MiniMart.Controllers
 		public async Task<IActionResult> CompleteCart(UserAddressDto userAddressDto)
 		{
 
-			string codeOrder = $"ORDER_${DateTime.Now.ToString("ddMMyyyyhhmmss")}";
+			string codeOrder = $"ORDER_{DateTime.Now.ToString("ddMMyyyyhhmmss")}";
 
 			if (ModelState.IsValid)
 			{
@@ -59,7 +59,7 @@ namespace MiniMart.Controllers
 				var cart = new CartRequestDto
 				{
 					CreateOn = DateTime.Now,
-					Code = $"CART_${DateTime.Now.ToString("ddMMyyyyhhmmss")}",
+					Code = $"CART_{DateTime.Now.ToString("ddMMyyyyhhmmss")}",
 					Status = StatusProcessing.New,
 					UserId = userId,
 					Products = products.ToList(),

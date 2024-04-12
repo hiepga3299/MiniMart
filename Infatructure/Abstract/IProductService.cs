@@ -9,7 +9,7 @@ namespace MiniMart.Infatructure.Abstract
         Task<ResponseModel> CreateProduct(ProductViewModel productVM);
         Task<bool> DeleteProduct(int? id);
         Task<string> GenerateCodeAsync();
-        Task<ProductForSiteModel> GetListProductForSiteAsync(int categoryId, int pageIndex, int pageSize);
+        Task<ProductForSiteModel> GetListProductForSiteAsync(int categoryId, int pageIndex, int pageSize, string keyword);
         Task<ResponseDataTableModel<ProductDto>> GetListProductPagination(RequestDataTableModel request);
         Task<IEnumerable<ProductCartDto>> GetProductByCodeAsync(string[] code);
         Task<ProductViewModel> GetProductById(int? id);
