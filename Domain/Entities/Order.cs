@@ -23,5 +23,6 @@ namespace MiniMart.Domain.Entities
         [Required]
         [StringLength(50)]
         public string UserId { get; set; }
+        public ICollection<OrderDetail> Details { get; set; }
     }
 }

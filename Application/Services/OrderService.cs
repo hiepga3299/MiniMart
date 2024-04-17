@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using MiniMart.Application.DTOs;
 using MiniMart.Application.DTOs.Order;
 using MiniMart.Application.DTOs.OrderDetail;
+using MiniMart.Application.DTOs.Report;
 using MiniMart.Domain.Entities;
 using MiniMart.Domain.Entities.Enum;
 using MiniMart.Domain.Enum;
@@ -46,6 +48,29 @@ namespace MiniMart.Application.Services
         {
             var result = await _unitOfWork.OrderRepository.GetOrderDetail<OrderDetailDto>(orderId);
             return result;
+        }
+
+        public async Task<ReportOrderDto> GetReportByIdAsync(string id)
+        {
+            var order = await _unitOfWork.Table<Order>().Where(x => x.Id == id).Include(x => x.Address).Include(x => x.Details).SingleAsync();
+            var address = _mapper.Map<OrderAddressDto>(order.Address);
+            var detail = order.Details.Join(_unitOfWork.Table<Product>(),
+                                                           x => x.ProductId,
+                                                           y => y.Id,
+                                                           (detail, product) => new DetailOrderDto
+                                                           {
+                                                               Price = detail.UnitPrice,
+                                                               Quantity = detail.Quantity,
+                                                               ProductName = product.Name,
+                                                           }).ToList();
+
+            return new ReportOrderDto
+            {
+                Code = order.Code,
+                CreateOn = order.CreateOn,
+                Address = address,
+                Detail = detail
+            };
         }
 
         public async Task<bool> SaveAsync(OrderRequestDto orderDto)

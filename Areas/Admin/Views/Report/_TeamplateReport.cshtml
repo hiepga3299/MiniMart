@@ -1,0 +1,94 @@
+﻿@using System.Globalization
+@model MiniMart.Application.DTOs.Report.ReportOrderDto
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .order-details {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+        .order-details th, .order-details td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+    .customer-info {
+        margin-top: 20px
+    }
+</style>
+
+
+<div class="container">
+    <div class="header">
+        <h1 style="color:#1c1c84;">Order Confirmation</h1>
+    </div>
+    <div class="customer-info">
+        <h3 style="color:#a92f43;">Order Infomation</h3>
+        <p><strong>Code:</strong>@Model.Code</p>
+        <p><strong>Created On:</strong>@Model.CreateOn.ToString("dd/MM/yyyy hh:mm")</p>
+    </div>
+    <div class="customer-info">
+        <h3 style="color:#a92f43;">Customer Infomation</h3>
+        <p><strong>Name:</strong>@Model.Address.Name</p>
+        <p><strong>Phone:</strong>@Model.Address.Phone</p>
+        <p><strong>Email:</strong>@Model.Address.Email</p>
+        <p><strong>Address:</strong>@Model.Address.Address @Model.Address.Region @Model.Address.City</p>
+    </div>
+
+    <table class="order-details">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var products = Model.Detail;
+                double totalPrice = 0;
+                foreach(var product in products)
+                {
+                    <tr>
+                        <th>@product.ProductName</th>
+                        <th style="width: 150px;text-align:right">@product.Quantity</th>
+                        <th style="width: 150px;text-align:right">@product.Price.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</th>
+                        <th style="width: 150px;text-align:right">@((product.Price * product.Quantity).ToString("C", CultureInfo.GetCultureInfo("vi-VN")))</th>
+                    </tr>
+                    totalPrice += (product.Price * product.Quantity);
+                }
+            }
+        </tbody>
+    </table>
+
+    <table class="order-details" style="width:300px; float:right;">
+        <tbody>
+            <tr>
+                <td colspan="3">Discount</td>
+                <td style="width:120px;text-align:right;">0%</td>
+            </tr>
+            <tr>
+                <td colspan="3">Total</td>
+                <td style="width:120px;text-align:right;">@(totalPrice.ToString("C", CultureInfo.GetCultureInfo("vi-VN")))</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
