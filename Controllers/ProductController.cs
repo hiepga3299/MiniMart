@@ -5,10 +5,13 @@ namespace MiniMart.Controllers
 {
     public class ProductController : Controller
     {
-        public IProductService _product { get; }
-        public ProductController(IProductService product)
+        private readonly IProductService _product;
+        private readonly ICategoryService _category;
+
+        public ProductController(IProductService product, ICategoryService category)
         {
             _product = product;
+            _category = category;
         }
 
 
@@ -34,9 +37,15 @@ namespace MiniMart.Controllers
         }
 
         [HttpGet]
-        public IActionResult ProductDetail(int id)
+        public async Task<IActionResult> ProductDetail(int id)
         {
-            return View();
+            var product = await _product.GetProductById(id);
+            if (product.Id != 0)
+            {
+                var category = await _category.GetById(product.CategoryId);
+                ViewBag.CtName = category.Name.ToString();
+            }
+            return View(product);
         }
     }
 }

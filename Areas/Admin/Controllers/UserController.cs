@@ -24,7 +24,6 @@ namespace MiniMart.Areas.Admin.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> GetAccountPagination(RequestDataTableModel requestModel)
-
         {
             var user = await _userService.GetListUser(requestModel);
             return Json(user);

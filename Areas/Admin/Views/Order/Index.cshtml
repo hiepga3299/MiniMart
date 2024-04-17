@@ -1,7 +1,6 @@
-﻿@model MiniMart.Application.DTOs.Products.ProductDto;
-
+﻿
 @{
-    ViewData["Title"] = "Product";
+    ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -21,14 +20,15 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="tbl-product" class="table table-bordered table-hover">
+                        <table id="tbl-order" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>Tên Sản Phẩm</th>
-                                    <th>Danh Mục</th>
-                                    <th>Số Lượng</th>
-                                    <th>Giá</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Mã Đặt Hàng</th>
                                     <th>Ngày Tạo</th>
+                                    <th>Số Tiền</th>
+                                    <th>Phương Thức Thanh Toán</th>
+                                    <th>Trạng Thái</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -46,5 +46,6 @@
     <script src="~/js/registerdatatable.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="~/admin/dist/js/product.js"></script>
+    <script src="~/admin/dist/js/order.js"></script>
 }
+

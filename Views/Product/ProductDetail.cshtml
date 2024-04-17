@@ -1,8 +1,48 @@
-﻿
+﻿@using System.Globalization
+@model MiniMart.Application.DTOs.ViewModel.ProductViewModel
 @{
     ViewData["Title"] = "ProductDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>ProductDetail</h1>
+<section class="product-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-slider owl-carousel">
+                    <div class="product-img">
+                        <figure>
+                            <img src="~/images/product/@(Model.Code).png" alt="" />
+                            <div class="p-status">new</div>
+                        </figure>
+                    </div>
+                    <div class="product-img">
+                        <figure>
+                            <img src="~/images/product/@(Model.Code).png" alt="" />
+                            <div class="p-status">new</div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-content">
+                    <h2>@Model.Name</h2>
+                    <div class="pc-meta">
+                        <h5>@Model.Price.ToString("C", CultureInfo.GetCultureInfo("vi-VN"))</h5>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+                        ipsum suspendisse ultrices gravida. Risus commodo viverra
+                        maecenas accumsan lacus vel facilisis.
+                    </p>
+                    <ul class="tags">
+                        <li><span>Category:</span> @ViewBag.CtName</li>
+                    </ul>
+                    <a href="#" class="primary-btn pc-btn btn-add-cart" data-code="@Model.Code">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 

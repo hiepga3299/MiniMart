@@ -48,7 +48,7 @@ namespace MiniMart.Application.Services
                 Name = product.Name,
                 Code = product.Code,
                 Description = product.Description,
-                CategoryId = category.Id,
+                CategoryId = product.CategoryId,
                 Available = product.Available,
                 Price = product.Price,
                 Image = fileImage,
