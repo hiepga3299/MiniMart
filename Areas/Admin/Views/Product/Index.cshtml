@@ -41,6 +41,8 @@
     </div>
 </section>
 
+@await Html.PartialAsync("_DeleteModal.cshtml", Model)
+
 @section Scripts {
     <script src="~/admin/dist/plugins/datatable/js/datatables.min.js"></script>
     <script src="~/js/registerdatatable.js"></script>

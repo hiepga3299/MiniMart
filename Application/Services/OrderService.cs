@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using MiniMart.Application.DTOs;
+using MiniMart.Application.DTOs.Chart;
 using MiniMart.Application.DTOs.Order;
 using MiniMart.Application.DTOs.OrderDetail;
 using MiniMart.Application.DTOs.Report;
@@ -104,6 +105,12 @@ namespace MiniMart.Application.Services
                 return false;
             }
             return true;
+        }
+
+        public async Task<IEnumerable<ChartOrderByProductDto>> GetChartDataBuProduct()
+        {
+            return await _unitOfWork.OrderRepository.GetChartDataByProduct<ChartOrderByProductDto>();
+
         }
     }
 }

@@ -36,6 +36,12 @@ namespace MiniMart.Infatructure.Repository
             return result;
         }
 
+        public async Task<IEnumerable<T>> GetChartDataByProduct<T>()
+        {
+            var result = await _sqlQueryHandler.ExecuteStoreProdecureReturnList<T>("GetChartDataOrderByProduct");
+            return result;
+        }
+
         public async Task SaveAsync(Order order)
         {
             await base.Create(order);

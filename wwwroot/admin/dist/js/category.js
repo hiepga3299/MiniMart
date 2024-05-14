@@ -34,16 +34,21 @@
         })
     })
 
+
     $(document).on('click', '.btn-deletes', function () {
+        $('#del-category-modal').modal('show');
         const key = $(this).closest('span').data('key')
-        console.log(key)
-        $.ajax({
-            url: `/admin/category/delete/${key}`,
-            dataType: 'json',
-            type: 'POST',
-            success: function () {
-                $(elementName).DataTable().ajax.reload();
-            }
+        $(document).on('click', '.del-category', function () {
+            $.ajax({
+                url: `/admin/category/delete/${key}`,
+                dataType: 'json',
+                type: 'POST',
+                success: function () {
+                    $(elementName).DataTable().ajax.reload();
+                    $('#del-category-modal').modal('hide');
+                    showToaster('Success', 'Xóa danh mục thành công');
+                }
+            })
         })
     })
 
@@ -58,10 +63,8 @@
             success: function () {
                 $(elementName).DataTable().ajax.reload();
                 $('#category-modal').modal('hide');
+                showToaster('Success', 'Thêm mới danh mục thành công');
             }
         })
     })
-
-
-
 })()

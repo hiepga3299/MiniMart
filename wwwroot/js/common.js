@@ -10,3 +10,13 @@
         }
     }
 }
+
+function showToaster(type, text, timeOut = 5000) {
+    $.toast({
+        heading: type,
+        text: text,
+        icon: type === 'Information' ? 'info' : type.toLowerCase(),
+        position: 'top-right',
+        hideAfter: timeOut
+    })
+}

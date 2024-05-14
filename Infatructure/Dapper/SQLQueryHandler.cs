@@ -14,7 +14,7 @@ namespace MiniMart.Infatructure.Dapper
             _connectionString = configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
         }
 
-        public async Task ExecuteNoReturnAsync(string query, DynamicParameters parameters, IDbTransaction dbTransaction = null)
+        public async Task ExecuteNoReturnAsync(string query, DynamicParameters parameters = null, IDbTransaction dbTransaction = null)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -22,7 +22,7 @@ namespace MiniMart.Infatructure.Dapper
             }
         }
 
-        public async Task<T> ExecuteReturnSingleValueScalarAasync<T>(string query, DynamicParameters parameters, IDbTransaction dbTransaction = null)
+        public async Task<T> ExecuteReturnSingleValueScalarAasync<T>(string query, DynamicParameters parameters = null, IDbTransaction dbTransaction = null)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -30,7 +30,7 @@ namespace MiniMart.Infatructure.Dapper
             }
         }
 
-        public async Task<T> ExecuteReturnSingleRowAasync<T>(string query, DynamicParameters parameters, IDbTransaction dbTransaction = null)
+        public async Task<T> ExecuteReturnSingleRowAasync<T>(string query, DynamicParameters parameters = null, IDbTransaction dbTransaction = null)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -38,7 +38,7 @@ namespace MiniMart.Infatructure.Dapper
             }
         }
 
-        public async Task<IEnumerable<T>> ExecuteStoreProdecureReturnList<T>(string nameStore, DynamicParameters parameters, IDbTransaction dbTransaction = null)
+        public async Task<IEnumerable<T>> ExecuteStoreProdecureReturnList<T>(string nameStore, DynamicParameters parameters = null, IDbTransaction dbTransaction = null)
         {
             using (var connection = new SqlConnection(_connectionString))
             {

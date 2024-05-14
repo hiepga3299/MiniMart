@@ -40,14 +40,18 @@
 
     $(document).on('click', '.btn-delete', function () {
         const key = $(this).closest('span').data('key')
-        console.log(key)
-        $.ajax({
-            url: `/admin/product/delete/${key}`,
-            dataType: 'json',
-            type: 'POST',
-            success: function () {
-                $(elementName).DataTable().ajax.reload();
-            }
+        $('#del-product-modal').modal('show');
+        $(document).on('click', '.del-category', function () {
+            $.ajax({
+                url: `/admin/product/delete/${key}`,
+                dataType: 'json',
+                type: 'POST',
+                success: function () {
+                    $(elementName).DataTable().ajax.reload();
+                }
+            })
+            $('#del-product-modal').modal('hide');
+            showToaster('Success', 'Xóa sản phẩm thành công')
         })
     })
 })();
