@@ -82,7 +82,7 @@ namespace MiniMart.Controllers
                 await _orderService.SaveAsync(order);
                 HttpContext.Session.Remove(CommonConstant.CartSessionName);
             }
-            return View();
+            return RedirectToAction("Succcess", new { codeOrder = codeOrder });
         }
 
         private async Task<IEnumerable<ProductCartDto>> GetCartFromSessionAsync()
@@ -105,6 +105,12 @@ namespace MiniMart.Controllers
                 productCartDtos = products.ToList();
             }
             return productCartDtos;
+        }
+
+        public IActionResult Succcess(string codeOrder)
+        {
+            ViewBag.CodeOrder = codeOrder;
+            return View();
         }
     }
 }

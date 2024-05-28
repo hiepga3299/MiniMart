@@ -37,28 +37,28 @@
 
 <div class="container">
     <div class="header">
-        <h1 style="color:#1c1c84;">Order Confirmation</h1>
+        <h1 style="color:#1c1c84;">Hóa Đơn</h1>
     </div>
     <div class="customer-info">
-        <h3 style="color:#a92f43;">Order Infomation</h3>
-        <p><strong>Code:</strong>@Model.Code</p>
-        <p><strong>Created On:</strong>@Model.CreateOn.ToString("dd/MM/yyyy hh:mm")</p>
+        <h3 style="color:#a92f43;">Thông tin đơn hàng</h3>
+        <p><strong>Mã đơn hàng:</strong>@Model.Code</p>
+        <p><strong>Ngày tạo:</strong>@Model.CreateOn.ToString("dd/MM/yyyy hh:mm")</p>
     </div>
     <div class="customer-info">
-        <h3 style="color:#a92f43;">Customer Infomation</h3>
-        <p><strong>Name:</strong>@Model.Address.Name</p>
-        <p><strong>Phone:</strong>@Model.Address.Phone</p>
+        <h3 style="color:#a92f43;">Thông tin khách hàng</h3>
+        <p><strong>Họ và Tên:</strong>@Model.Address.Name</p>
+        <p><strong>Điện Thoại:</strong>@Model.Address.Phone</p>
         <p><strong>Email:</strong>@Model.Address.Email</p>
-        <p><strong>Address:</strong>@Model.Address.Address @Model.Address.Region @Model.Address.City</p>
+        <p><strong>Địa Chỉ:</strong>@Model.Address.Address @Model.Address.Region @Model.Address.City</p>
     </div>
 
     <table class="order-details">
         <thead>
             <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tổng tiền</th>
             </tr>
         </thead>
         <tbody>
@@ -86,7 +86,7 @@
                 <td style="width:120px;text-align:right;">0%</td>
             </tr>
             <tr>
-                <td colspan="3">Total</td>
+                <td colspan="3">Thành tiền</td>
                 <td style="width:120px;text-align:right;">@(totalPrice.ToString("C", CultureInfo.GetCultureInfo("vi-VN")))</td>
             </tr>
         </tbody>

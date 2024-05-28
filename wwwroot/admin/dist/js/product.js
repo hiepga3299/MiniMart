@@ -18,14 +18,11 @@
         {
             data: 'id', name: 'id', render: function (key) {
                 return `<span data-key="${key}">
-                            <a href="/admin/product/savedata?id=${key}">
-                                <i class="fas fa-pen"></i>
+                            <a class="btn btn-primary" type="button" href="/admin/product/savedata?id=${key}">
+                                Sửa
                             </a> &nbsp 
-                            <a href="#" class="btn-delete">
-                                <i class="fas fa-trash"></i>
-                            </a> &nbsp 
-                            <a href="#" class="btn-disable">
-                                <i class="fas fa-user-alt-slash"></i>
+                            <a href="#" class="btn btn-danger btn-delete" type="button">
+                                Xóa
                             </a>
                          </span>`
             }
@@ -33,10 +30,6 @@
     ];
     registerDataTable(elementName, columns, urlApi)
 
-    $(document).on('click', '.btn-disable', function () {
-        const data = $(this).closest('span').data('key')
-        console.log(typeof data)
-    })
 
     $(document).on('click', '.btn-delete', function () {
         const key = $(this).closest('span').data('key')

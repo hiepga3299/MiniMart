@@ -18,4 +18,5 @@ $(document).on('click', '.btn-add-cart', function () {
             }
         }
     });
+    showToaster('Success', 'Đã thêm sản phẩm vào giỏ hàng')
 });

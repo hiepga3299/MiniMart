@@ -23,11 +23,11 @@
         {
             data: 'id', name: 'id', render: function (key) {
                 return `<span data-key="${key}">
-                            <a href="/admin/order/orderdetail?orderId=${key}">
-                                <i class="fas fa-pen"></i>
+                            <a href="/admin/order/orderdetail?orderId=${key}" class="btn btn-primary" type="button">
+                                Xem
                             </a> &nbsp
-                            <a href="/admin/report/ExportPdfOder?id=${key}" id="abc">
-                                <i class="far fa-file-alt"></i>
+                            <a href="/admin/report/ExportPdfOder?id=${key}" class="btn btn-primary" type="button" id="abc">
+                                Xuất PDF <i class="far fa-file-alt"></i>
                             </a>
                          </span>`
             }

@@ -6,11 +6,11 @@
         {
             data: 'id', name: 'id', width: 200, render: function (key) {
                 return `<span data-key="${key}">
-                            <a href="#" class="btn-edit">
-                                <i class="fas fa-pen"></i>
+                            <a href="#" class="btn btn-primary btn-edit" type="button">
+                                Sửa
                             </a> &nbsp 
-                            <a href="#" class="btn-deletes">
-                                <i class="fas fa-trash"></i>
+                            <a href="#" class="btn btn-danger btn-delete btn-deletes" type="button">
+                                Xóa
                             </a>
                          </span>`
             }

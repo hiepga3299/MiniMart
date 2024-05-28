@@ -10,14 +10,13 @@
         {
             data: 'id', name: 'id', render: function (key) {
                 return `<span data-key="${key}">
-                            <a href="/admin/user/savedata?id=${key}">
-                                <i class="fas fa-pen"></i>
+                            <a class="btn btn-primary" type="button" href="/admin/user/savedata?id=${key}">Sửa
                             </a> &nbsp 
-                            <a href="#">
-                                <i class="fas fa-trash"></i>
+                            <a href="#" class="btn btn-danger" type="button">
+                                Xóa
                             </a> &nbsp 
-                            <a href="#" class="btn-disable">
-                                <i class="fas fa-user-alt-slash"></i>
+                            <a href="#" type="button" class="btn-disable btn btn-warning">
+                                Khóa
                             </a>
                          </span>`
             }
