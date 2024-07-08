@@ -38,8 +38,12 @@ namespace MiniMart.Areas.Admin.Controllers
             var productVM = new ProductViewModel();
             ViewBag.Category = await _categoryService.GetCategoryForDropDownListAsync();
 
-            string code = await _productService.GenerateCodeAsync();
-            productVM.Code = code;
+            if (id == 0)
+            {
+                string code = await _productService.GenerateCodeAsync();
+                productVM.Code = code;
+
+            }
             if (id != 0)
             {
                 productVM = await _productService.GetProductById(id);

@@ -30,9 +30,9 @@ namespace MiniMart.Infatructure.Repository
             return await GetSingleAsync(x => x.Id == id);
         }
 
-        public void UpdateCategory(Category category)
+        public async Task UpdateCategoryAsync(Category category)
         {
-            Update(category);
+            await Update(category);
             Commit();
         }
 

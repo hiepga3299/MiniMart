@@ -10,6 +10,6 @@ namespace MiniMart.Infatructure.Abstract
         Task<Category> GetById(int id);
         Task<IEnumerable<Category>> GetCategoriesAsync();
         Task<IEnumerable<Category>> GetCategoriesForDataTableAsync(RequestDataTableModel requestData);
-        void UpdateCategory(Category category);
+        Task UpdateCategoryAsync(Category category);
     }
 }

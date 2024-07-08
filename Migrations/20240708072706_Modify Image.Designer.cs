@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniMart.Infatructure.DataAccess;
 
@@ -11,9 +12,10 @@ using MiniMart.Infatructure.DataAccess;
 namespace MiniMart.Migrations
 {
     [DbContext(typeof(MiniMartDbContext))]
-    partial class MiniMartDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240708072706_Modify Image")]
+    partial class ModifyImage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

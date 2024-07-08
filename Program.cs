@@ -17,6 +17,7 @@ builder.Services.AddControllersWithViews(option =>
 {
     option.Conventions.Add(new SiteAreaConvention());
 });
+
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

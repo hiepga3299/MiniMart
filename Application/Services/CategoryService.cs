@@ -75,7 +75,7 @@ namespace MiniMart.Application.Services
                 var category = await _unitOfWork.CategoryRepository.GetById(categoryViewModel.Id.Value);
                 category.Name = categoryViewModel.Name;
                 category.IsActive = true;
-                _unitOfWork.CategoryRepository.UpdateCategory(category);
+                await _unitOfWork.CategoryRepository.UpdateCategoryAsync(category);
                 await _unitOfWork.SaveChage();
             }
         }

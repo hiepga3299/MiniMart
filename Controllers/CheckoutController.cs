@@ -3,6 +3,7 @@ using MiniMart.Application.DTOs;
 using MiniMart.Application.DTOs.Cart;
 using MiniMart.Application.DTOs.Order;
 using MiniMart.Application.DTOs.Products;
+using MiniMart.Application.DTOs.VnPay;
 using MiniMart.Domain.Common;
 using MiniMart.Domain.Entities.Enum;
 using MiniMart.Domain.Enum;
@@ -19,13 +20,15 @@ namespace MiniMart.Controllers
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
         private readonly IUserAddressService _userAddressService;
+        private readonly IVnPayService _vnPay;
 
-        public CheckoutController(IProductService product, ICartService cartService, IOrderService orderService, IUserAddressService userAddressService)
+        public CheckoutController(IProductService product, ICartService cartService, IOrderService orderService, IUserAddressService userAddressService, IVnPayService vnPay)
         {
             _product = product;
             _cartService = cartService;
             _orderService = orderService;
             _userAddressService = userAddressService;
+            _vnPay = vnPay;
         }
         public async Task<IActionResult> Index(string returnUrl)
         {
@@ -46,11 +49,21 @@ namespace MiniMart.Controllers
         [HttpPost]
         public async Task<IActionResult> CompleteCart(UserAddressDto userAddressDto)
         {
-
             string codeOrder = $"ORDER_{DateTime.Now.ToString("ddMMyyyyhhmmss")}";
 
             if (ModelState.IsValid)
             {
+                if (userAddressDto.PaymentMethod == PaymentMethod.VnPay)
+                {
+                    var model = new RequestVnPayModel
+                    {
+                        Fullname = userAddressDto.FullName,
+                        Description = $"{userAddressDto.FullName} {userAddressDto.PhoneNumber}",
+                        OrderId = codeOrder,
+                        TotalAmount = userAddressDto.TotalPrice
+                    };
+                    Redirect(_vnPay.CreatePaymentUrl(HttpContext, model));
+                }
                 string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
                 var products = await GetCartFromSessionAsync();
                 userAddressDto.UserId = userId;
@@ -76,7 +89,7 @@ namespace MiniMart.Controllers
                     TotalAmoun = 0,
                     UserId = userId,
                     AddressId = addressId,
-                    Id = userAddressDto.PaymentMethod == PaymentMethod.Paypal ? userAddressDto.UserId : Guid.NewGuid().ToString()
+                    Id = userAddressDto.PaymentMethod == PaymentMethod.VnPay ? userAddressDto.UserId : Guid.NewGuid().ToString()
 
                 };
                 await _orderService.SaveAsync(order);
@@ -109,6 +122,11 @@ namespace MiniMart.Controllers
 
         public IActionResult Succcess(string codeOrder)
         {
+            //var response = _vnPay.ResponsePayment(Request.Query);
+            //if (response == null || response.ResponseCode != "00")
+            //{
+            //    return RedirectToAction("FailPayment");
+            //}
             ViewBag.CodeOrder = codeOrder;
             return View();
         }

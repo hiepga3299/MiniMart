@@ -49,6 +49,7 @@ namespace MiniMart.Infatructure.DataAccess.Configuration
             //services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ICartService, CartService>();
+            services.AddTransient<IVnPayService, VnPayService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IUserAddressService, UserAddressService>();
         }

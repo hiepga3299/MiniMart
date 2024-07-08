@@ -6,7 +6,7 @@
 
 @await Html.PartialAsync("~/Areas/Admin/Views/Shared/_BreadScrum.cshtml")
 <div class="card">
-    <form asp-controller="product" asp-action="savedata" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+    <form asp-controller="Product" asp-action="savedata" asp-antiforgery="true" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="card-body">
                 <div class="row">
@@ -54,9 +54,9 @@
                             else
                             {
                                 <img src="#" alt="no image" height="150" id="img-product" />
-                                
+                                <input type="file" class="form-control" asp-for="Image" />
                             }
-                            <input type="file" class="form-control" asp-for="Image" />
+
                         </div>
                     </div>
                 </div>

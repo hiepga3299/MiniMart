@@ -48,7 +48,7 @@
                         }
                         tr.append("<td>" + product.productName + "</td>");
                         tr.append("<td>" + product.price + "</td>");
-                        tr.append("<td>" + product.code + "</td>");
+                        /*tr.append("<td>" + product.code + "</td>");*/
                         tr.append("<td>" + product.quantity + "</td>");
                         tbody.append(tr);
                     });

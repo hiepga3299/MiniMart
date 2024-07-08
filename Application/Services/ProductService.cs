@@ -64,15 +64,15 @@ namespace MiniMart.Application.Services
             string nameImage = $"{productVM.Code}.png";
             var product = _mapper.Map<Product>(productVM);
             product.CreateOn = DateTime.Now;
+
             if (product.Id == 0)
             {
                 product.IsActive = true;
                 product.Code = productVM.Code;
                 product.Image = path + nameImage;
+                await _image.SaveImage(new List<IFormFile> { productVM.Image }, path, nameImage);
             }
-
             var result = await _unitOfWork.ProductRepository.SaveProduct(product);
-            await _image.SaveImage(new List<IFormFile> { productVM.Image }, path, nameImage);
             await _unitOfWork.SaveChage();
 
             var actionType = productVM.Id == 0 ? ActionType.Insert : ActionType.Update;

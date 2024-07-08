@@ -63,7 +63,7 @@ namespace MiniMart.Infatructure.Repository
             }
             else
             {
-                base.Update(product);
+                await base.Update(product);
             }
             return true;
         }
