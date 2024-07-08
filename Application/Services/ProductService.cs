@@ -69,9 +69,9 @@ namespace MiniMart.Application.Services
             {
                 product.IsActive = true;
                 product.Code = productVM.Code;
-                product.Image = path + nameImage;
-                await _image.SaveImage(new List<IFormFile> { productVM.Image }, path, nameImage);
             }
+            product.Image = path + nameImage;
+            await _image.SaveImage(new List<IFormFile> { productVM.Image }, path, nameImage);
             var result = await _unitOfWork.ProductRepository.SaveProduct(product);
             await _unitOfWork.SaveChage();
 
