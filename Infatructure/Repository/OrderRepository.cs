@@ -42,6 +42,16 @@ namespace MiniMart.Infatructure.Repository
             return result;
         }
 
+        public async Task<Order> GetOrderById(string id)
+        {
+            return await GetSingleAsync(x => x.Id == id);
+        }
+        public async Task Update(Order order)
+        {
+            await base.Update(order);
+        }
+
+
         public async Task SaveAsync(Order order)
         {
             await base.Create(order);

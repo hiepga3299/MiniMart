@@ -74,6 +74,27 @@ namespace MiniMart.Application.Services
             };
         }
 
+        public async Task<bool> ComfirmOrder(string id)
+        {
+            try
+            {
+                var order = await _unitOfWork.OrderRepository.GetOrderById(id);
+                var order1 = _mapper.Map<Order>(order);
+                await _unitOfWork.BeginTransaction();
+                order1.Status = StatusProcessing.Processing;
+                await _unitOfWork.Table<Order>().AddAsync(order1);
+                await _unitOfWork.OrderRepository.Update(order1);
+                await _unitOfWork.SaveChage();
+                await _unitOfWork.CommitTransaction();
+            }
+            catch (Exception ex)
+            {
+                await _unitOfWork.RollbackTransaction();
+                return false;
+            }
+            return true;
+        }
+
         public async Task<bool> SaveAsync(OrderRequestDto orderDto)
         {
             try
@@ -91,7 +112,7 @@ namespace MiniMart.Application.Services
                             OrderId = order.Id,
                             ProductId = product.Id,
                             Quantity = product.Quantity,
-                            UnitPrice = product.Price
+                            UnitPrice = product.Price,
                         };
                         await _unitOfWork.Table<OrderDetail>().AddAsync(orderDetail);
                     }

@@ -19,7 +19,11 @@
                 return `<div class="text-left">${formatPaymentMethod(data)}</div>`
             }
         },
-        { data: 'status', name: 'status', width: '100px' },
+        {
+            data: 'status', name: 'status', width: '100px', render: function (data) {
+                return `<div class="text-left">${formatStatusMethod(data)}</div>`
+            }
+        },
         {
             data: 'id', name: 'id', render: function (key) {
                 return `<span data-key="${key}">
@@ -41,6 +45,14 @@
                 return `<span>Tiền Mặt</span>`
             case 'paypal':
                 return `<span>Thẻ</span>`
+        }
+    }
+    function formatStatusMethod(data) {
+        switch (data.toLowerCase()) {
+            case 'new':
+                return `<span>Mới</span>`
+            case 'processing':
+                return `<span>Đã xác nhận</span>`
         }
     }
 

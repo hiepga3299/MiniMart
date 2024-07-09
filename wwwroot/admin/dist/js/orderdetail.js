@@ -3,6 +3,22 @@
         getOrderDetail()
     }
 
+    function getOrderIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('orderId');
+    }
+
+    $(document).on('click', '#btn-comfirm', function () {
+        var orderId = getOrderIdFromUrl();
+        $.ajax({
+            url: `/admin/order/comfirmorder?orderId=${orderId}`,
+            type: 'GET',
+            success: function () {
+                alert("Đã xác nhận đơn hàng")
+            }
+        })
+    })
+
     function getOrderDetail() {
         var currentUrl = window.location.href;
         var queryString = currentUrl.split('?')[1];

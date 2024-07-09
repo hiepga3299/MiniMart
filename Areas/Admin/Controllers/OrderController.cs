@@ -38,5 +38,12 @@ namespace MiniMart.Areas.Admin.Controllers
             var data = await _orderService.GetOrderDetail(orderId);
             return Json(data);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ComfirmOrder(string orderId)
+        {
+            var result = await _orderService.ComfirmOrder(orderId);
+            return Json(result);
+        }
     }
 }

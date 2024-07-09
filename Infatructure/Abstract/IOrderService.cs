@@ -8,6 +8,7 @@ namespace MiniMart.Infatructure.Abstract
 {
     public interface IOrderService
     {
+        Task<bool> ComfirmOrder(string id);
         Task<ResponseDataTableModel<object>> GetByPagination(RequestDataTableModel request);
         Task<IEnumerable<ChartOrderByProductDto>> GetChartDataBuProduct();
         Task<IEnumerable<OrderDetailDto>> GetOrderDetail(string orderId);
