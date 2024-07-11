@@ -4,6 +4,7 @@ namespace MiniMart.Infatructure.Abstract
 {
     public interface IOrderRepository
     {
+        Task<IEnumerable<Order>> GetAllOrder();
         Task<(IEnumerable<T>, int)> GetByPagination<T>(string keyword, int pageIndex, int pageSize);
         Task<IEnumerable<T>> GetChartDataByProduct<T>();
         Task<Order> GetOrderById(string id);

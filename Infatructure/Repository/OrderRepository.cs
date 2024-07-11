@@ -14,6 +14,12 @@ namespace MiniMart.Infatructure.Repository
             _sqlQueryHandler = sqlQueryHandler;
         }
 
+        public async Task<IEnumerable<Order>> GetAllOrder()
+        {
+            var orders = await base.GetAllAsync();
+            return orders;
+        }
+
         public async Task<(IEnumerable<T>, int)> GetByPagination<T>(string keyword, int pageIndex, int pageSize)
         {
             DynamicParameters parameters = new DynamicParameters();

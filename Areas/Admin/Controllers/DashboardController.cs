@@ -25,5 +25,13 @@ namespace MiniMart.Areas.Admin.Controllers
         {
             return Json(await _order.GetChartDataBuProduct());
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetTotalAmount()
+        {
+            var totalAmount = await _order.GetTotalAmount();
+            var totalOrder = await _order.GetTotalOrder();
+            return Json(new { amount = totalAmount, order = totalOrder });
+        }
     }
 }

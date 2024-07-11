@@ -86,7 +86,7 @@ namespace MiniMart.Controllers
                     Code = codeOrder,
                     PaymentMethod = userAddressDto.PaymentMethod,
                     Status = StatusProcessing.New,
-                    TotalAmoun = 0,
+                    TotalAmoun = userAddressDto.TotalPrice,
                     UserId = userId,
                     AddressId = addressId,
                     Id = userAddressDto.PaymentMethod == PaymentMethod.VnPay ? userAddressDto.UserId : Guid.NewGuid().ToString()

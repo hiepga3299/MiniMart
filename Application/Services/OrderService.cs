@@ -23,6 +23,20 @@ namespace MiniMart.Application.Services
             _mapper = mapper;
         }
 
+        public async Task<double> GetTotalAmount()
+        {
+            var orderTotal = await _unitOfWork.OrderRepository.GetAllOrder();
+            var totalAmount = orderTotal.Sum(x => x.TotalAmoun);
+            return totalAmount;
+        }
+
+        public async Task<int> GetTotalOrder()
+        {
+            var orderTotal = await _unitOfWork.OrderRepository.GetAllOrder();
+            var totalOrder = orderTotal.Count();
+            return totalOrder;
+        }
+
         public async Task<ResponseDataTableModel<object>> GetByPagination(RequestDataTableModel request)
         {
             var (order, totalRecord) = await _unitOfWork.OrderRepository.GetByPagination<OrderResponseDto>(request.Keyword, request.SkipIndex, request.PageSize);

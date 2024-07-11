@@ -1,6 +1,7 @@
 ﻿(function () {
     function initial() {
         loadDataChartOrder();
+        loadTotalAmount();
         registerEvents();
     }
 
@@ -13,6 +14,23 @@
                     return;
                 }
                 initialChartOrder(response);
+            }
+        })
+    }
+
+
+    function loadTotalAmount() {
+        $.ajax({
+            url: '/admin/dashboard/gettotalamount',
+            method: 'GET',
+            success: function (res) {
+                if (res) {
+                    $('#total-amount').text(res.amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }));
+                    $('#total-order').text(res.order);
+                } else {
+                    $('#total-amount').text('Chưa có doanh thu')
+                }
+
             }
         })
     }

@@ -13,6 +13,8 @@ namespace MiniMart.Infatructure.Abstract
         Task<IEnumerable<ChartOrderByProductDto>> GetChartDataBuProduct();
         Task<IEnumerable<OrderDetailDto>> GetOrderDetail(string orderId);
         Task<ReportOrderDto> GetReportByIdAsync(string id);
+        Task<double> GetTotalAmount();
+        Task<int> GetTotalOrder();
         Task<bool> SaveAsync(OrderRequestDto productOrder);
     }
 }
